@@ -6,6 +6,8 @@ a base salted deployment
 ## About
 This is a basic server configuration representing the minimal configuration for a new server using a masterless salt-minion; Salt Masterless. Some of the configuration information is there for illustrative purposes and should be changed to suit your needs. However, the end state of your system, once Salt has been run is a properly configured and usable server, aside from user information, group information, and any firewall rulels that need to be added to suit your needs.
 
+This does not include databases, web-servers, or any programming languages beyond those that are included with the distribution.
+
 ## Usage
 Fork this repo, customize to your needs, and run on the desired server. No Salt master is required. `salt`, `pillar`, and `minion` should be placed in `/srv/`. 
 
