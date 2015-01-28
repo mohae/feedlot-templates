@@ -9,7 +9,7 @@ This is a basic server configuration representing the minimal configuration for 
 This does not include databases, web-servers, or any programming languages beyond those that are included with the distribution.
 
 ### Master-Minion
-Even though this repo is setup for running Salt masterless minions, it can be used as a basis for a Salt Master-Minion setup. To do so, you will need a Salt Master and the `minion` file will need to be modified to use a master.
+Even though this repo is setup for running Salt masterless minions, it can be used as a basis for a Salt Master-Minion setup. To do so, you will need a Salt Master and the `minion` file will need to be modified to use a master. For more information: http://docs.saltstack.com/en/latest/ref/configuration/minion.html
 
 ## Usage
 Fork this repo, customize to your needs, and run on the desired server. No Salt master is required. `salt`, `pillar`, and `minion` should be placed in `/srv/`. 
@@ -27,7 +27,13 @@ For more information on Salt Masterless: http://docs.saltstack.com/en/latest/top
 ## Salt: Information About Basic's States and Pillars
 
 ### Formulas
-Some of the configuration is done via [Salt Formulas](https://github.com/saltstack-formulas). The formula directories are renamed to drop the `-formula` part of the name. If the formula had a `LICENSE` file, a copy of it will be within its renamed directory.
+Some of the configuration is done via [Salt Formulas](https://github.com/saltstack-formulas).
+
+The idiomatic way to use salt formulas is to fork each salt-formula repository, install GitFS, and add the Formula repository URLs `gitfs_remotes`. With Salt v2014.7.1 masterles minions support GitFS. 
+
+However, to make this repository easier to use, the pertinant parts of the Salt Formulas have been copied into is with the Formula directories are renamed to drop the `-formula` part of the name. If the formula had a `LICENSE` file, a copy of it will be within its renamed directory. 
+
+This also makes it so that Salt v2014.7.1 is not a requirement to use this repository with a masterless minion, which at time of writing, 2014-01, is not available as a package.
 
 ### `salt/date`
 Runs a command to write the current datetime to a tmp file.
