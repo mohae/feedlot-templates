@@ -1,7 +1,7 @@
 saltbase
 ========
 
-a base salted deployment
+A basic server configuration using SaltStack masterless-minion. No webserver or db included.
 
 ## About
 This is a basic server configuration representing the minimal configuration for a new server using a masterless salt-minion; Salt Masterless. Some of the configuration information is there for illustrative purposes and should be changed to suit your needs. However, the end state of your system, once Salt has been run is a properly configured and usable server, aside from user information, group information, and any firewall rules that need to be added to suit your needs.
