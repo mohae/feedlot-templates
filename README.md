@@ -1,2 +1,2 @@
 # rancher-build-templates
-some Rancher build templates and their associated sources
+Rancher build templates are used by [Rancher](https://github.com/rancher) to generated [Packer](https://packer.io) templates. 
