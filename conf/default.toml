@@ -4,8 +4,8 @@
 #
 description = "Default Rancher template"
 name = ":build_name"
-output_dir = "../packer_templates/:build_name"
-source_dir = "packer_sources"
+output_dir = "../packer-templates/:build_name"
+source_dir = "rancher-build-templates/packer_sources"
 include_component_string = "true"
 min_packer_version = "0.7.0"
 builder_types = [
@@ -28,17 +28,16 @@ provisioner_types = [
 			"headless = true",
 			"http_directory = http",
 			"iso_checksum_type = sha256",
-			"output_directory = :output_dir",
+			"output_directory = ../packer-boxes/:build_name",
 			"shutdown_command = shutdown.command",
 			"ssh_password = vagrant",
 			"ssh_port = 22",
 			"ssh_username = vagrant",
-			"ssh_wait_timeout = 5m",
+			"ssh_wait_timeout = 60m",
 			"vm_name = :build_name",
 		]
 	[builders.virtualbox-iso]
 		settings = [
-			"guest_additions_path = VBoxGuestAdditions_{{ .Version }}.iso",
 			"virtualbox_version_file = .vbox_version"
 		]
 		[builders.virtualbox-iso.arrays]
@@ -60,6 +59,7 @@ provisioner_types = [
 			"keep_input_artifact = false",
 			"output =  :build_name.box"
 		]
+			
 [provisioners]
 	[provisioners.shell]
 		settings = [
@@ -67,8 +67,8 @@ provisioner_types = [
 		]
 		[provisioners.shell.arrays]
 			scripts = [ 
-				"setup.sh",
-				"sudoers.sh",
-				"vagrant.sh",
-				"cleanup.sh",
+				"setup",
+				"sudoers",
+				"user_vagrant",
+				"cleanup",
 			]
