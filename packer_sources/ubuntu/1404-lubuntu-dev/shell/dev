@@ -1,0 +1,43 @@
+# install some stuff we'll need. Some of this may already be installed but
+# that's ok.
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext
+
+# install git
+DEBIAN_FRONTEND=noninteractive apt-get install -y git
+
+# install dart: who knows if this will get widely adopted, but it's fun to play with.
+# Enable HTTPS for apt.
+DEBIAN_FRONTEND=noninteractive apt-get install apt-transport-https
+# Get the Google Linux package signing key.
+sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+# Set up the location of the stable repository.
+sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get -y install dart
+
+# typescript
+npm install -g typescript
+
+# java
+DEBIAN_FRONTEND=noninteractive apt-get install -y default-jre
+DEBIAN_FRONTEND=noninteractive apt-get install -y default-jdk
+
+# lua: 5.2 was latest at time of writing.
+DEBIAN_FRONTEND=noninteractive apt-get install -y lua5.2
+
+# rust
+curl -sSf https://static.rust-lang.org/rustup.sh -O
+sh rustup.sh -y
+rm -f rustup.sh
+
+# switch to vagrant user
+su -l vagrant <<'EOF'
+# nodejs: from nvm. 0.12.7 is current latest. Install what works for you
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash
+exec bash
+nvm install stable
+nvm use stable
+
+# switch back to root
+EOF

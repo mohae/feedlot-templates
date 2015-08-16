@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Go should be installed under the user not root
+su vagrant  <<'EOF'
+echo export GOPATH=$HOME/code/go >> ~vagrant/.bashrc
+echo export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin >> ~vagrant/.bashrc
+exec bash
+wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz -O /tmp/go.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+mkdir ~vagrant/code
+mkdir ~vagrant/code/go
+
+# delve debugger: https://github.com/derekparker/delve
+#go get github.com/derekparker/delve/cmd/dlv
+EOF
