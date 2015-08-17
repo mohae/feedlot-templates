@@ -1,4 +1,7 @@
 # editors
+# set path as sudo is inheriting environment, which doesn't include sbin stuff
+# this could probably be resolved through sudoers config
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 # install vim and emacs
 DEBIAN_FRONTEND=noninteractive apt-get install -y vim emacs
 
