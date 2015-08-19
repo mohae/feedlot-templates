@@ -1,4 +1,4 @@
-[1404-lubuntu-dev]
+[1404-lubuntu-dev-vbox-vagrant]
 	distro = "ubuntu"
 	description = "ubuntu LTS 1404 amd64 lubuntu build w some languages and editors"
 	arch = "amd64"
@@ -7,17 +7,17 @@
 	builder_types = [
 		"virtualbox-iso"
 	]
-	[1404-lubuntu-dev.builders]
-		[1404-lubuntu-dev.builders.virtualbox-iso.arrays]
+	[1404-lubuntu-dev-vbox-vagrant.builders]
+		[1404-lubuntu-dev-vbox-vagrant.builders.virtualbox-iso.arrays]
 			vboxmanage = [
 				"cpus=1",
 				"memory=2048",
 				"vram=128",
 				"accelerate3d=on"
 			]
-	[1404-lubuntu-dev.provisioners]
-		[1404-lubuntu-dev.provisioners.shell]
-			[1404-lubuntu-dev.provisioners.shell.arrays]
+	[1404-lubuntu-dev-vbox-vagrant.provisioners]
+		[1404-lubuntu-dev-vbox-vagrant.provisioners.shell]
+			[1404-lubuntu-dev-vbox-vagrant.provisioners.shell.arrays]
 				scripts = [ 
 					"setup",
 					"sudoers",
@@ -30,37 +30,3 @@
 					"vbox",
 					"cleanup"
 				]
-[jessie-go]
-	distro = "debian"
-	description = "debian jessie amd64 vagrant build"
-	arch = "amd64"
-	image = "netinst"
-	release = "8"
-	builder_types = [
-		"virtualbox-iso"
-	]
-	[jessie-go.builders]
-		[jessie-go.builders.common]
-			settings = [
-				"ssh_wait_timeout = 30m"
-			]
-		[jessie-go.builders.virtualbox-iso.arrays]
-			vboxmanage = [
-				"cpus=1",
-				"memory=2048",
-				"vram=128",
-				"accelerate3d=on"
-			]			
-	[jessie-go.provisioners]
-		[jessie-go.provisioners.shell]
-			[jessie-go.provisioners.shell.arrays]
-				scripts = [ 
-					"setup",
-					"sudoers",
-					"user_vagrant",
-					"editors",
-					"go",
-					"vbox",
-					"cleanup"
-				]
-

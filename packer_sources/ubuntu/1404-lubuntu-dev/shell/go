@@ -10,6 +10,4 @@ sudo tar -C /usr/local -xzf /tmp/go.tar.gz
 mkdir ~vagrant/code
 mkdir ~vagrant/code/go
 
-# delve debugger: https://github.com/derekparker/delve
-#go get github.com/derekparker/delve/cmd/dlv
 EOF
