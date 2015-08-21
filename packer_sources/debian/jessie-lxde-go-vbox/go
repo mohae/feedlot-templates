@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+DEBIAN_FRONTEND=noninteractive apt-get update
+wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz -O /tmp/go.tar.gz
+tar -C /usr/local -xzf /tmp/go.tar.gz
+
+# liteide: latest
+wget http://sourceforge.net/projects/liteide/files/latest/download?source=files -O /tmp/liteide.tar.bz2
+tar -C /usr/local -xjf /tmp/liteide.tar.bz2 
+# Go should be installed under the user not root
+su - vagrant <<'EOF'
+export GOPATH=$HOME/code/go
+export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin:/usr/local/liteide/bin
+echo export GOPATH=$HOME/code/go >> ~vagrant/.bashrc
+echo export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin:/usr/local/liteide/bin >> ~vagrant/.bashrc
+source ~vagrant/.bashrc
+
+# make the GOPATH dir
+mkdir ~vagrant/code
+mkdir ~vagrant/code/go
+
+# delve debugger: https://github.com/derekparker/delve
+go get github.com/derekparker/delve/cmd/dlv
+
+EOF

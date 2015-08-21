@@ -1,0 +1,6 @@
+# install a lightweight desktop
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y xorg xserver-xorg
+DEBIAN_FRONTEND=noninteractive apt-get install -y lxde
+DEBIAN_FRONTEND=noninteractive apt-get install -y lightdm

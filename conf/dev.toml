@@ -30,3 +30,34 @@
 					"vbox",
 					"cleanup"
 				]
+[jessie-lxde-go-vbox]
+	distro = "debian"
+	description = "minimal debian jessie amd64 virtualbox vagrant build"
+	arch = "amd64"
+	image = "netinst"
+	release = "8"
+	builder_types = [
+		"virtualbox-iso"
+	]
+	# unset vagrant
+	post_processor_types = []
+	[jessie-lxde-go-vbox.builders]
+		[jessie-lxde-go-vbox.builders.virtualbox-iso.arrays]
+			vboxmanage = [
+				"cpus=1",
+				"memory=2048",
+				"vram=128",
+				"accelerate3d=on"
+			]
+	[jessie-lxde-go-vbox.provisioners.shell.arrays]
+		scripts = [ 
+			"setup",
+			"sudoers",
+			"user_vagrant",
+			"desktop",
+			"browsers",
+			"editors",
+			"go",
+			"vbox",
+			"cleanup"
+		]

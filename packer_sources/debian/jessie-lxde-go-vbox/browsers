@@ -1,0 +1,10 @@
+# install commonly used programs
+# chrome
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+DEBIAN_FRONTEND=noninteractive apt-get install -y -f
+
+# chromium
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y chromium chromium-l10n
