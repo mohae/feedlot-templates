@@ -18,8 +18,8 @@ post_processor_types = [
 provisioner_types = [
 	"shell"
 ]
-[builders]
-	[builders.common]
+	[builders]
+		[builders.common]
 		settings = [	
 			"boot_command = boot.command",
 			"boot_wait = 5s",
@@ -36,36 +36,36 @@ provisioner_types = [
 			"ssh_wait_timeout = 60m",
 			"vm_name = :build_name",
 		]
-	[builders.virtualbox-iso]
+		[builders.virtualbox-iso]
 		settings = [
 			"virtualbox_version_file = .vbox_version"
 		]
-		[builders.virtualbox-iso.arrays]
+			[builders.virtualbox-iso.arrays]
 			vboxmanage = [
 				"cpus=1",
 				"memory=1024"	
 			]
-	[builders.vmware-iso]
-		[builders.vmware-iso.arrays]
+		[builders.vmware-iso]
+			[builders.vmware-iso.arrays]
 			vmx_data = [
 				"cpuid.coresPerSocker=1",
 				"numvcpus=1",
 				"memsize=1024"
 			]
-[post_processors]
-	[post_processors.vagrant]
+	[post_processors]
+		[post_processors.vagrant]
 		settings = [
 			"compression_level = 9",
 			"keep_input_artifact = false",
 			"output =  :build_name.box"
 		]
 			
-[provisioners]
-	[provisioners.shell]
+	[provisioners]
+		[provisioners.shell]
 		settings = [
 			"execute_command = execute.command"
 		]
-		[provisioners.shell.arrays]
+			[provisioners.shell.arrays]
 			scripts = [ 
 				"setup",
 				"sudoers",

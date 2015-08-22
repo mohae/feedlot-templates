@@ -14,72 +14,72 @@
 # Support for override is coming, but may require a rework of the way Rancher build 
 # templates are defined.
 [1404-64-vbox-vagrant]
-	distro = "ubuntu"
-	description = "minimal ubuntu LTS 1404 amd64 virtualbox vagrant build"
-	arch = "amd64"
-	image = "server"
-	release = "14.04"
-	builder_types = [
-		"virtualbox-iso"
-	]
+distro = "ubuntu"
+description = "minimal ubuntu LTS 1404 amd64 virtualbox vagrant build"
+arch = "amd64"
+image = "server"
+release = "14.04"
+builder_types = [
+	"virtualbox-iso"
+]
 	[1404-64-vbox-vagrant.provisioners.shell.arrays]
-		scripts = [ 
-			"setup",
-			"sudoers",
-			"user_vagrant",
-			"vbox",
-			"cleanup",
-		]
-[centos6-64-vbox-vagrant]
-	distro = "centos"
-	description = "minimal centos 6 x86_64 virtualbox vagrant build"
-	arch = "x86_64"
-	image = "Minimal"
-	release = "6"
-	builder_types = [
-		"virtualbox-iso"
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"vbox",
+		"cleanup",
 	]
+[centos6-64-vbox-vagrant]
+distro = "centos"
+description = "minimal centos 6 x86_64 virtualbox vagrant build"
+arch = "x86_64"
+image = "Minimal"
+release = "6"
+builder_types = [
+	"virtualbox-iso"
+]
 	[centos6-64-vbox-vagrant.provisioners.shell.arrays]
-		scripts = [ 
-			"setup",
-			"sudoers",
-			"user_vagrant",
-			"vbox",			
-			"cleanup"
-		]
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"vbox",			
+		"cleanup"
+	]
 
 [centos7-64-vbox-vagrant]
-	distro = "centos"
-	description = "minimal centos 7 x86_64 virtualbox vagrant build"
-	arch = "x86_64"
-	image = "Minimal"
-	release = "7"
-	builder_types = [
-		"virtualbox-iso"
-	]
+distro = "centos"
+description = "minimal centos 7 x86_64 virtualbox vagrant build"
+arch = "x86_64"
+image = "Minimal"
+release = "7"
+builder_types = [
+	"virtualbox-iso"
+]
 	[centos7-64-vbox-vagrant.provisioners.shell.arrays]
-		scripts = [ 
-			"setup",
-			"sudoers",
-			"user_vagrant",
-			"vbox",
-			"cleanup"
-		]
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"vbox",
+		"cleanup"
+	]
 			
 [jessie-64-vbox-vagrant]
-	distro = "debian"
-	description = "minimal debian jessie amd64 virtualbox vagrant build"
-	arch = "amd64"
-	image = "netinst"
-	release = "8"
-	builder_types = [
-		"virtualbox-iso"
-	]
+distro = "debian"
+description = "minimal debian jessie amd64 virtualbox vagrant build"
+arch = "amd64"
+image = "netinst"
+release = "8"
+builder_types = [
+	"virtualbox-iso"
+]
 	[jessie-64-vbox-vagrant.provisioners.shell.arrays]
-		scripts = [ 
-			"setup",
-			"sudoers",
-			"user_vagrant",
-			"vbox",
-			"cleanup"
-		]
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"vbox",
+		"cleanup"
+	]

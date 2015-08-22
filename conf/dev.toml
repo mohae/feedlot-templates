@@ -1,55 +1,57 @@
 [1404-lubuntu-dev-vbox-vagrant]
-	distro = "ubuntu"
-	description = "ubuntu LTS 1404 amd64 lubuntu build w some languages and editors"
-	arch = "amd64"
-	image = "server"
-	release = "14.04"
-	builder_types = [
-		"virtualbox-iso"
-	]
+distro = "ubuntu"
+description = "ubuntu LTS 1404 amd64 lubuntu build w some languages and editors"
+arch = "amd64"
+image = "server"
+release = "14.04"
+builder_types = [
+	"virtualbox-iso"
+]
 	[1404-lubuntu-dev-vbox-vagrant.builders]
 		[1404-lubuntu-dev-vbox-vagrant.builders.virtualbox-iso.arrays]
-			vboxmanage = [
-				"cpus=1",
-				"memory=2048",
-				"vram=128",
-				"accelerate3d=on"
-			]
+		vboxmanage = [
+			"cpus=1",
+			"memory=2048",
+			"vram=128",
+			"accelerate3d=on"
+		]
 	[1404-lubuntu-dev-vbox-vagrant.provisioners]
 		[1404-lubuntu-dev-vbox-vagrant.provisioners.shell]
 			[1404-lubuntu-dev-vbox-vagrant.provisioners.shell.arrays]
-				scripts = [ 
-					"setup",
-					"sudoers",
-					"user_vagrant",
-					"desktop",
-					"browsers",
-					"editors",
-					"dev",
-					"go",
-					"vbox",
-					"cleanup"
-				]
+			scripts = [ 
+				"setup",
+				"sudoers",
+				"user_vagrant",
+				"desktop",
+				"browsers",
+				"editors",
+				"dev",
+				"go",
+				"vbox",
+				"cleanup"
+			]
+
 [jessie-lxde-go-vbox]
-	distro = "debian"
-	description = "minimal debian jessie amd64 virtualbox vagrant build"
-	arch = "amd64"
-	image = "netinst"
-	release = "8"
-	builder_types = [
-		"virtualbox-iso"
-	]
-	# unset vagrant
-	post_processor_types = []
+distro = "debian"
+description = "minimal debian jessie amd64 virtualbox vagrant build"
+arch = "amd64"
+image = "netinst"
+release = "8"
+builder_types = [
+	"virtualbox-iso"
+]
+# unset vagrant
+post_processor_types = []
 	[jessie-lxde-go-vbox.builders]
 		[jessie-lxde-go-vbox.builders.virtualbox-iso.arrays]
-			vboxmanage = [
-				"cpus=1",
-				"memory=2048",
-				"vram=128",
-				"accelerate3d=on"
-			]
-	[jessie-lxde-go-vbox.provisioners.shell.arrays]
+		vboxmanage = [
+			"cpus=1",
+			"memory=2048",
+			"vram=128",
+			"accelerate3d=on"
+		]
+	[jessie-lxde-go-vbox.provisioners]
+		[jessie-lxde-go-vbox.provisioners.shell.arrays]
 		scripts = [ 
 			"setup",
 			"sudoers",
