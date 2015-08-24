@@ -26,8 +26,8 @@ release = "14.04"
 builder_types = [
 	"virtualbox-iso"
 ]
-	[1404-salt-vagrant.provisioners]
-		[1404-salt-vagrant.provisioners.shell.arrays]
+	[1404-salty-vagrant.provisioners]
+		[1404-salty-vagrant.provisioners.shell.arrays]
 		scripts = [
 			"setup",
 			"sudoers",
@@ -36,3 +36,4 @@ builder_types = [
 			"vbox",
 			"cleanup"
 		]
+
