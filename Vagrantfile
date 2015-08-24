@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = "jessie-salt-masterless-vbox-vagrant.box"
+  config.vm.box = "jessie-salty-vbox-vagrant.box"
   config.vm.synced_folder "salt/roots/", "/srv/"
 
   # config.vm.provider "virtualbox" do |vb|
