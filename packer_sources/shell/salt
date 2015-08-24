@@ -1,0 +1,6 @@
+#!/bin/bash
+# install distro's stable package w salt-bootstrap
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+wget -O /tmp/install_salt.sh https://bootstrap.saltstack.com
+chmod +x /tmp/install_salt.sh
+/tmp/install_salt.sh -P 

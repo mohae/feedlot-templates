@@ -1,0 +1,18 @@
+[jessie-salty-vbox-vagrant]
+distro = "debian"
+description = "debian jessie amd64 virtualbox vagrant build w salt installed"
+arch = "amd64"
+image = "netinst"
+release = "8"
+builder_types = [
+	"virtualbox-iso"
+]
+	[jessie-salty-vbox-vagrant.provisioners.shell.arrays]
+	scripts = [
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"salt",
+		"vbox",
+		"cleanup"
+	]
