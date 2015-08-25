@@ -1,7 +1,7 @@
 saltbase
 ========
 
-A basic server configuration using SaltStack masterless-minion. No webserver or db included.
+A basic server configuration using SaltStack masterless-minion.
 
 ## About
 This is a basic server configuration representing the minimal configuration for a new server using a masterless salt-minion; Salt Masterless. Some of the configuration information is there for illustrative purposes and should be changed to suit your needs. However, the end state of your system, once Salt has been run is a properly configured and usable server, aside from user information, group information, and any firewall rules that need to be added to suit your needs.
@@ -14,15 +14,34 @@ Even though this repo is setup for running Salt masterless minions, it can be us
 ## Usage
 Fork this repo, customize to your needs, and run on the desired server. No Salt master is required. `salt`, `pillar`, and `minion` should be placed in `/srv/`. 
 
+Salt can either be run using Vagrant and the Salt provisioner or by installing and running Salt manually.
+
+### With Vagrant
+A `Vagrantfile` is included with a Salt-masterless provisioner configured. If Salt is not already installed, it will be installed by the provisioner before running `salt-call`.
+
+If you do not already have a Vagrant box, you can create one using [Packer](https://packer.io).  I have some [basic Packer templates](https://github.com/mohae/packer-templates) that can be used with Packer to create a vagrant box. The basic Packer templates in that repository are:
+
+* 1404-64-vbox-vagrant
+* centos6-64-vbox-vagrant
+* centos7-64-vbox-vagrant
+* jessie-64-vbox-vagrant
+
+The `Vagrantfile`'s `config.vm.box` setting should be updated to match the name of the Vagrant box you are using.
+
+Depending on what version of Vagrant and Virtualbox you are using, you might run into some issues, esp. with CentOS 7.
+
+### Install Salt and run
 Bootstrap Salt Minion:
 
     wget -O - https://bootstrap.saltstack.com | sudo sh
 	
 To run:
 
-    salt-call --local state.highstate
+    salt-call state.highstate
 
 For more information on Salt Masterless: http://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html
+
+For more information on `salt-bootstrap`: https://github.com/saltstack/salt-bootstrap.
 
 ## Salt: Information About Basic's States and Pillars
 
@@ -31,7 +50,7 @@ Some of the configuration is done via [Salt Formulas](https://github.com/saltsta
 
 The idiomatic way to use salt formulas is to fork each salt-formula repository, install GitFS, and add the Formula repository URLs `gitfs_remotes`. With Salt v2014.7.1 masterles minions support GitFS. 
 
-However, to make this repository easier to use, the pertinant parts of the Salt Formulas have been copied into is with the Formula directories are renamed to drop the `-formula` part of the name. If the formula had a `LICENSE` file, a copy of it will be within its renamed directory. 
+However, to make this repository easier to use, the pertinent parts of the Salt Formulas have been copied into is with the Formula directories are renamed to drop the `-formula` part of the name. If the formula had a `LICENSE` file, a copy of it will be within its renamed directory. 
 
 This also makes it so that Salt v2014.7.1 is not a requirement to use this repository with a masterless minion, which at time of writing, 2014-01, is not available as a package.
 
@@ -90,5 +109,3 @@ __Never commit this information to a public repository__
 
 ### `pillar/vim`
 Defines the location of the `vimrc` file.
-
-
