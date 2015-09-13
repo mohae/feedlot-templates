@@ -30,6 +30,23 @@ builder_types = [
 		"vbox",
 		"cleanup",
 	]
+[1504-64-vbox-vagrant]
+distro = "ubuntu"
+description = "minimal ubuntu LTS 1404 amd64 virtualbox vagrant build"
+arch = "amd64"
+image = "server"
+release = "15.04"
+builder_types = [
+	"virtualbox-iso"
+]
+	[1504-64-vbox-vagrant.provisioners.shell.arrays]
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"vbox",
+		"cleanup",
+	]	
 [centos6-64-vbox-vagrant]
 distro = "centos"
 description = "minimal centos 6 x86_64 virtualbox vagrant build"

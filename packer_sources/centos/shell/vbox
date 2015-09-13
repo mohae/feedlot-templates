@@ -2,9 +2,10 @@
 # Install VirtualBox Guest Additions
 # necessary:
 yum install -y xserver-xorg xserver-xorg-core
-VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 cd /tmp
-mount -o loop /home/vagrant/VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
-sh /mnt/VBoxLinuxAdditions.run
-umount /mnt
-rm -f /home/vagrant/VBoxGuestAdditions_*.iso
+mkdir /mnt/iso
+mount -o loop /home/vagrant/VBoxGuestAdditions.iso /mnt/iso
+sh /mnt/iso/VBoxLinuxAdditions.run
+umount /mnt/iso
+rmdir -f /mnt/iso
+rm -f /home/vagrant/VBoxGuestAdditions.iso
