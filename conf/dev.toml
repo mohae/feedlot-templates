@@ -13,7 +13,8 @@ builder_types = [
 			"cpus=1",
 			"memory=2048",
 			"vram=128",
-			"accelerate3d=on"
+			"accelerate3d=on",
+			"clipboard=bidirectional"
 		]
 	[1404-lubuntu-dev-vbox-vagrant.provisioners]
 		[1404-lubuntu-dev-vbox-vagrant.provisioners.shell]
@@ -27,6 +28,42 @@ builder_types = [
 				"editors",
 				"dev",
 				"go",
+				"timezone",
+				"vbox",
+				"cleanup"
+			]
+
+[1504-lubuntu-dev-vbox-vagrant]
+distro = "ubuntu"
+description = "ubuntu LTS 1504 amd64 lubuntu build w some languages and editors"
+arch = "amd64"
+image = "server"
+release = "15.04"
+builder_types = [
+	"virtualbox-iso"
+]
+	[1504-lubuntu-dev-vbox-vagrant.builders]
+		[1504-lubuntu-dev-vbox-vagrant.builders.virtualbox-iso.arrays]
+		vboxmanage = [
+			"cpus=1",
+			"memory=2048",
+			"vram=128",
+			"accelerate3d=on",
+			"clipboard=bidirectional"
+		]
+	[1504-lubuntu-dev-vbox-vagrant.provisioners]
+		[1504-lubuntu-dev-vbox-vagrant.provisioners.shell]
+			[1504-lubuntu-dev-vbox-vagrant.provisioners.shell.arrays]
+			scripts = [ 
+				"setup",
+				"sudoers",
+				"user_vagrant",
+				"desktop",
+				"browsers",
+				"editors",
+				"dev",
+				"go",
+				"timezone",	
 				"vbox",
 				"cleanup"
 			]
@@ -48,7 +85,8 @@ post_processor_types = []
 			"cpus=1",
 			"memory=2048",
 			"vram=128",
-			"accelerate3d=on"
+			"accelerate3d=on",
+			"clipboard=bidirectional"
 		]
 	[jessie-lxde-go-vbox.provisioners]
 		[jessie-lxde-go-vbox.provisioners.shell.arrays]
@@ -56,6 +94,7 @@ post_processor_types = []
 			"setup",
 			"sudoers",
 			"user_vagrant",
+			"timezone",
 			"desktop",
 			"browsers",
 			"editors",

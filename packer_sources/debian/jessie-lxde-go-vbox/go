@@ -9,15 +9,14 @@ wget http://sourceforge.net/projects/liteide/files/latest/download?source=files 
 tar -C /usr/local -xjf /tmp/liteide.tar.bz2 
 # Go should be installed under the user not root
 su - vagrant <<'EOF'
-export GOPATH=$HOME/code/go
-export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin:/usr/local/liteide/bin
-echo export GOPATH=$HOME/code/go >> ~vagrant/.bashrc
-echo export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin:/usr/local/liteide/bin >> ~vagrant/.bashrc
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/liteide/bin
+echo 'export GOPATH=$HOME/go' >> ~vagrant/.bashrc
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:/usr/local/liteide/bin' >> ~vagrant/.bashrc
 source ~vagrant/.bashrc
 
 # make the GOPATH dir
-mkdir ~vagrant/code
-mkdir ~vagrant/code/go
+mkdir ~vagrant/go
 
 # delve debugger: https://github.com/derekparker/delve
 go get github.com/derekparker/delve/cmd/dlv

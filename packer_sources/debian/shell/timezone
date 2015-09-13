@@ -1,0 +1,4 @@
+﻿#!/bin/bash
+# set timezone: for valid timezones check /usr/share/zoneinfo
+rm /etc/localtime
+ln -s /user/share/zoneinfo/US/Central localtime

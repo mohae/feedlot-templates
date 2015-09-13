@@ -1,4 +1,8 @@
+#!/bin/bash
 # install commonly used programs
+# quassel for irc: hnot a browser, but here it is.
+DEBIAN_FRONTEND=noninteractive apt-get install -y quassel
+
 # chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb

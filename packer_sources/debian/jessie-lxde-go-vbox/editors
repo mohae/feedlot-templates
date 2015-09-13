@@ -1,3 +1,4 @@
+#!/bin/bash
 # editors
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 # install vim and emacs
