@@ -1,13 +1,13 @@
 #!/bin/bash
-# install browsers and stuff
+# install commonly used programs
 # quassel for irc: hnot a browser, but here it is.
 DEBIAN_FRONTEND=noninteractive apt-get install -y quassel
 
 # chrome
-PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 DEBIAN_FRONTEND=noninteractive apt-get install -y -f
+rm -f google-chrome-stable_current_amd64.deb
 
 # chromium
 DEBIAN_FRONTEND=noninteractive apt-get update
