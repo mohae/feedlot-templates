@@ -1,5 +1,7 @@
-﻿#!/bin/bash
-# set timezone: for valid timezones check /usr/share/zoneinfo
-PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-echo "America/Chicago"  > /etc/timezone
+#!/bin/bash
+# set local time to my America/Chicago
+# for valid timezones check /usr/share/zoneinfo
+# /etc/timezone will still be 
+rm -f /etc/localtime
+ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
