@@ -1,0 +1,8 @@
+#!/bin/bash
+# Update the system and install basics
+yum update
+yum upgrade -y
+yum install -y bzip2 
+yum install -y curl git rsync wget vim
+yum install -y gcc make gcc-c++
+yum install -y "kernel-devel-uname-r == $(uname -r)"
