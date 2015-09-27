@@ -1,0 +1,12 @@
+#!/bin/bash
+# Install RVM and chef-solo
+sudo - vagrant << END
+# rvm
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
+source ~/.rvm/scripts/rvm
+
+# chef-solo
+gem install knife-solo --no-ri --no-rdoc
+gem install berkshelf --no-ri --no-rdoc
+END
