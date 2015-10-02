@@ -1,0 +1,45 @@
+# Rancher build templates for Chef stuff.
+
+# Chef-solo install using the chef provisioner. This template installs
+# chef-solo using the shell provisioner. This makes it easy to develop
+# against chef-solo with the generated artifact. 
+[1504-chef-solo-vbox-vagrant]
+distro = "ubuntu"
+description = "ubuntu LTS 1504 amd64 virtualbox vagrant build w chef-solo"
+arch = "amd64"
+image = "server"
+release = "15.04"
+builder_types = [
+	"virtualbox-iso"
+]
+	[1504-chef-solo-vbox-vagrant.provisioners.shell.arrays]
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"chef_solo",
+		"vbox",
+		"cleanup",
+	]
+			
+# Chef-solo install using the chef provisioner. This template installs
+# chef-solo using the shell provisioner. This makes it easy to develop
+# against chef-solo with the generated artifact. 
+[jessie-chef-solo-vbox-vagrant]
+distro = "debian"
+description = "debian jessie amd64 virtualbox vagrant build w chef-solo"
+arch = "amd64"
+image = "netinst"
+release = "8"
+builder_types = [
+	"virtualbox-iso"
+]
+	[jessie-64-vbox-vagrant.provisioners.shell.arrays]
+	scripts = [ 
+		"setup",
+		"sudoers",
+		"user_vagrant",
+		"chef_solo",
+		"vbox",
+		"cleanup"
+	]
