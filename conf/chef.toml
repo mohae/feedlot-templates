@@ -34,7 +34,7 @@ release = "8"
 builder_types = [
 	"virtualbox-iso"
 ]
-	[jessie-64-vbox-vagrant.provisioners.shell.arrays]
+	[jessie-chef-solo-vbox-vagrant.provisioners.shell.arrays]
 	scripts = [ 
 		"setup",
 		"sudoers",
