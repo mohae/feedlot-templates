@@ -3,6 +3,9 @@
 # Chef-solo install using the chef provisioner. This template installs
 # chef-solo using the shell provisioner. This makes it easy to develop
 # against chef-solo with the generated artifact. 
+#
+# RAM is set to 2G because the compile step for one of the gems fails due
+# to memory exhaustion
 [1504-chef-solo-vbox-vagrant]
 distro = "ubuntu"
 description = "ubuntu LTS 1504 amd64 virtualbox vagrant build w chef-solo"
@@ -12,6 +15,12 @@ release = "15.04"
 builder_types = [
 	"virtualbox-iso"
 ]
+	[1504-chef-solo-vbox-vagrant.builders]
+		[1504-chef-solo-vbox-vagrant.builders.virtualbox-iso.arrays]
+		vboxmanage = [
+			"cpus=1",
+			"memory=2048",
+		]
 	[1504-chef-solo-vbox-vagrant.provisioners.shell.arrays]
 	scripts = [ 
 		"setup",
