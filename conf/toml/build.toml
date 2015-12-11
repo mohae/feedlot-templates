@@ -2,17 +2,8 @@
 # define the final overrides and settings for generating a Packer Template. The 
 # generated Packer template will be the result of merging the settings within the
 # build configuration with the Rancher and distro defaults.
-
-# These all target the "virtualbox-iso" builder only. For build templates that target
-# multiple builders, the "override" setting needs to be supported. Until that occurs
-# separate templates will be needed instead; e.g. instead of a build targeting both
-# "virtualbox-iso" and "vmware-iso" using the "shell" provisioner, these will need to
-# be separated to different build templates as the "virtualbox-iso" template would need
-# the "vbox" shell script while the "vmware-iso" template would need the "vmware" shell
-# script. 
 #
-# Support for override is coming, but may require a rework of the way Rancher build 
-# templates are defined.
+# These all target the "virtualbox-iso" builder only.
 [1404-64-vbox-vagrant]
 distro = "ubuntu"
 description = "minimal ubuntu LTS 1404 amd64 virtualbox vagrant build"

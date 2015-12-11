@@ -1,0 +1,155 @@
+# Various development definitions.
+
+{
+	# ubuntu 15.04 LTS with lubuntu desktop targeting virtualbox and vagrant. 
+	# VM Properties:
+	#   1 cpu
+	#   2048 RAM
+	#   128 VRAM
+	#   3d acceleration enabled
+	#   bidirectional clipboard
+	# Installed dev stuff (in addition to what comes with Ubuntu):
+	#   build-essential
+	#   libssl-dev
+	#   libexpat1-dev
+	#   gettext
+	#   dart (latest stable release)
+	#   typescript (npm)
+	#   java (apt)
+	#   lua 5.2
+	#   rust (via rustup.sh)
+	#   go (latest release)
+	# Installed editors: 
+	#   vim
+	#   emacs
+	#   atom 
+	# Installed software (in addition to what comes with Ubuntu):
+	#   git
+	#   quassel
+	#   chrome
+	#   chromium
+	#   curl
+	# 
+	# Notes: 
+	#   Timezone is set to America/Chicago; to change TZ, modify packer_sources/ubuntu/shell/timezone
+	"1504-lubuntu-dev-vbox-vagrant": {
+		"arch": "amd64",
+		"builder_types": [
+			"virtualbox-iso"
+		],
+		"builders": {
+			"virtualbox-iso": {
+				"arrays": {
+					"vboxmanage": [
+						"cpus=1",
+						"memory=2048",
+						"vram=128",
+						"accelerate3d=on",
+						"clipboard=bidirectional"
+					]
+				}
+			}
+		},
+		"description": "ubuntu LTS 1504 amd64 lubuntu build w some languages and editors",
+		"distro": "ubuntu",
+		"image": "server",
+		"provisioners": {
+			"shell": {
+				"arrays": {
+					"scripts": [
+						"setup",
+						"sudoers",
+						"user_vagrant",
+						"desktop",
+						"browsers",
+						"editors",
+						"dev",
+						"go",
+						"timezone",
+						"vbox",
+						"cleanup"
+					]
+				}
+			}
+		},
+		"release": "15.04"
+	},
+	# Debian Jessie w lxde desktop targeting virtualbox.
+	# VM Properties:
+	#   1 cpu
+	#   2048 RAM
+	#   128 VRAM
+	#   3d acceleration enabled
+	#   bidirectional clipboard
+	# Installed Go stuff:
+	#   go (latest release)
+	#   delve (A Go debugger)
+	#   liteide (A Go ide)
+	# Installed editors: 
+	#   vim w spf13-vim
+	#   emacs
+	#   atom
+	# Installed software (in addition to what comes with Ubuntu):
+	#   git
+	#   quassel
+	#   chrome
+	#   chromium
+	#   curl
+	#   alsa-utils
+	#   bzip2
+	#   liblz4-tool
+	#   rsync
+	#   tree
+	#   wget
+	#   build-essential
+	#   dkms
+	#   linux-headers-$(uname -r)
+	# Removed packages:
+	#   xscreensaver
+	#
+	# Notes: 
+	#   Timezone is set to America/Chicago; to change TZ, modify packer_sources/ubuntu/shell/timezone
+	"jessie-lxde-go-vbox": {
+		"arch": "amd64",
+		"builder_types": [
+			"virtualbox-iso"
+		],
+		"builders": {
+			"virtualbox-iso": {
+				"arrays": {
+					"vboxmanage": [
+						"cpus=1",
+						"memory=2048",
+						"vram=128",
+						"accelerate3d=on",
+						"clipboard=bidirectional"
+					]
+				}
+			}
+		},
+		"description": "minimal debian jessie amd64 virtualbox vagrant build",
+		"distro": "debian",
+		"image": "netinst",
+		# unset vagrant
+		"post_processor_types": [],
+		"provisioners": {
+			"shell": {
+				"arrays": {
+					"scripts": [
+						"setup",
+						"sudoers",
+						"user_vagrant",
+						"timezone",
+						"desktop",
+						"browsers",
+						"editors",
+						"go",
+						"vbox",
+						"cleanup"
+					]
+				}
+			}
+		},
+		"release": "8"
+	}
+}

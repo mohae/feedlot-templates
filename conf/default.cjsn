@@ -1,0 +1,86 @@
+# Default settings for Rancher templates.  Merging the contents of this file
+# with the supported config file settings results in the default template for
+# Rancher.
+{
+	"builder_ids": [
+		"virtualbox-iso",
+		"vmware-iso"
+	],
+	"builders": {
+		"common": {
+			"settings": [
+				"boot_command = boot.command",
+				"boot_wait = 5s",
+				"disk_size = 40000",
+				"guest_os_type=",
+				"headless = true",
+				"http_directory = http",
+				"iso_checksum_type = sha256",
+				"output_directory = :output_dir",
+				"shutdown_command = shutdown.command",
+				"ssh_password = vagrant",
+				"ssh_port = 22",
+				"ssh_username = vagrant",
+				"ssh_wait_timeout = 60m",
+				"vm_name = :build_name"
+			]
+		},
+		"virtualbox-iso": {
+			"arrays": {
+				"vboxmanage": [
+					"cpus=1",
+					"memory=1024"
+				]
+			},
+			"settings": [
+				"guest_additions_path = VBoxGuestAdditions.iso",
+				"virtualbox_version_file = .vbox_version"
+			]
+		},
+		"vmware-iso": {
+			"arrays": {
+				"vmx_data": [
+					"cpuid.coresPerSocker=1",
+					"numvcpus=1",
+					"memsize=1024"
+				]
+			}
+		}
+	},
+	"description": "Default Rancher template",
+	"include_component_string": "true",
+	"min_packer_version": "0.7.0",
+	"name": ":build_name",
+	"output_dir": "../packer_templates/:build_name",
+	"post_processor_ids": [
+		"vagrant"
+	],
+	"post_processors": {
+		"vagrant": {
+			"settings": [
+				"compression_level = 9",
+				"keep_input_artifact = false",
+				"output =  :build_name.box"
+			]
+		}
+	},
+	"provisioner_ids": [
+		"shell"
+	],
+	"provisioners": {
+		"shell": {
+			"arrays": {
+				"scripts": [
+					"setup",
+					"sudoers",
+					"user_vagrant",
+					"cleanup"
+				]
+			},
+			"settings": [
+				"execute_command = execute.command"
+			]
+		}
+	},
+	"source_dir": "packer_sources"
+}

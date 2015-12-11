@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 DEBIAN_FRONTEND=noninteractive apt-get update
-wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz -O /tmp/go.tar.gz
+wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz -O /tmp/go.tar.gz
 tar -C /usr/local -xzf /tmp/go.tar.gz
 
 # liteide: latest
