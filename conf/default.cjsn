@@ -82,5 +82,6 @@
 			]
 		}
 	},
-	"source_dir": "packer_sources"
+	"source_dir": "../packer_sources",
+     "source_dir_is_relative": true
 }

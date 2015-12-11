@@ -5,7 +5,8 @@
 description = "Default Rancher template"
 name = ":build_name"
 output_dir = "../packer-templates/:build_name"
-source_dir = "rancher-build-templates/packer_sources"
+source_dir = "../packer_sources"
+source_dir_is_relative = true
 include_component_string = "true"
 min_packer_version = "0.7.0"
 builder_types = [
