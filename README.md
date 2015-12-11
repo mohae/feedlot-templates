@@ -26,12 +26,12 @@ If you wish to use an environment variable to set the location which Rancher sho
 ### Runtime Flag
 If the `conf_dir` flag is passed to Rancher, the `conf_dir` flag's setting will be used. This will override the application default value, the Rancher configuration file value, and the Environment Variable value, if they exist.
 
-## Configure the `source_dir`
-Rancher build configuration files have a `source_dir` setting that determines where Rancher finds the Packer source files for a given build. The `default.cjsn` file currently points to `rancher-build-templates/packer_sources`. It may be necessary to update this path so that Rancher can locate this file. The current setting assumes that the `rancher-build-template` will be in Rancher's working directory.
+## Packer Source files
+All files referenced in the build templates are in the `packer_sources` directory.  Rancher uses the `source_dir` setting, which is set in the `defaults` file, but can also be set per build template, to locate the source directory.  Rancher uses the `source_dir_is_relative` setting, which is a bool, in conjuction with the `source_dir` setting to determine the actual location of the source directory.  The `source_dir_is_relative` setting is set to `true`, which means it is relative to the location of the configuration file containing the setting.
 
-Each Rancher build template can override this setting, but none within this repo do.
+In this case, the location is `rancher-build-templates/conf` and the `source_dir` is `../packer_sources`, which means Rancher will look for the Packer source files in the `rancher-build-templates/packer_sources/` directory.
     
 ## TOML configs
 The TOML configuration files are no longer being maintaines as of 2015-10-10.  Rancher's default format for configuration files is now JSON, or CJSON (commented JSON).  The TOML configurations have been moved to the `rancher-build-templates/conf/toml` directory.  They are still usable and will build Packer templates.  To use these files set the `RANCHER_CONF_DIR` to `rancher-build-templates/conf/toml`.
 
-Any updates made to the `cjsn`, CJSON, configs in the `rancher-build-templates/conf` directory will not be relected in the TOML configs.
+Any updates made to the `cjsn`, CJSON, configs in the `rancher-build-templates/conf` directory will not be reflected in the TOML configs.
