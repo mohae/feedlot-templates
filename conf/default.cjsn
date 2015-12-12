@@ -82,6 +82,7 @@
 			]
 		}
 	},
-	"source_dir": "../packer_sources",
-     "source_dir_is_relative": true
+	# The default config must have a non-empty source_dir setting.
+	"source_dir": "../packer_sources"
+	"dir_is_relative": true
 }
