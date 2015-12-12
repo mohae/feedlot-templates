@@ -1,7 +1,7 @@
-# Various development definitions.
+# Various definitions for basic desktop based development environments.
 
 {
-	# ubuntu 15.04 LTS with lubuntu desktop targeting virtualbox and vagrant. 
+	# ubuntu 15.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
 	# VM Properties:
 	#   1 cpu
 	#   2048 RAM
@@ -31,9 +31,16 @@
 	#   curl
 	# 
 	# Notes: 
-	#   Timezone is set to America/Chicago; to change TZ, modify packer_sources/ubuntu/shell/timezone
+	#   * Timezone is set to America/Chicago; to change the timezone,
+	#     modify the packer_sources/ubuntu/shell/timezone shell script.
+	#   * The initial user is vagrant/vagrant.  To change this, modify
+	#     the packer_sources/ubuntu/http/preseed.cfg file.
 	"1504-lubuntu-dev-vbox-vagrant": {
+		"description": "ubuntu 1504 lts amd64 w lubuntu desktop, some languages, and editors",
+		"release": "15.04"
 		"arch": "amd64",
+		"distro": "ubuntu",
+		"image": "server",
 		"builder_types": [
 			"virtualbox-iso"
 		],
@@ -50,9 +57,6 @@
 				}
 			}
 		},
-		"description": "ubuntu LTS 1504 amd64 lubuntu build w some languages and editors",
-		"distro": "ubuntu",
-		"image": "server",
 		"provisioners": {
 			"shell": {
 				"arrays": {
@@ -72,9 +76,8 @@
 				}
 			}
 		},
-		"release": "15.04"
 	},
-	# Debian Jessie w lxde desktop targeting virtualbox.
+	# Debian Jessie w lxde desktop and Go, targeting virtualbox.
 	# VM Properties:
 	#   1 cpu
 	#   2048 RAM
@@ -108,9 +111,16 @@
 	#   xscreensaver
 	#
 	# Notes: 
-	#   Timezone is set to America/Chicago; to change TZ, modify packer_sources/ubuntu/shell/timezone
+	#   * Timezone is set to America/Chicago; to change the timezone,
+	#     modify the packer_sources/debian/shell/timezone shell script.
+	#   * The initial user is vagrant/vagrant; to change it modify the
+	#     packer_sources/debian/http/preseed.cfg file.
 	"jessie-lxde-go-vbox": {
+		"description": "minimal debian jessie amd64 virtualbox vagrant build",
+		"distro": "debian",
+		"release": "8"
 		"arch": "amd64",
+		"image": "netinst",
 		"builder_types": [
 			"virtualbox-iso"
 		],
@@ -127,10 +137,8 @@
 				}
 			}
 		},
-		"description": "minimal debian jessie amd64 virtualbox vagrant build",
-		"distro": "debian",
-		"image": "netinst",
-		# unset vagrant
+		# unset the vagrant post-processor; no post-processor will be
+		# used since none is set.
 		"post_processor_types": [],
 		"provisioners": {
 			"shell": {
@@ -150,6 +158,5 @@
 				}
 			}
 		},
-		"release": "8"
 	}
 }

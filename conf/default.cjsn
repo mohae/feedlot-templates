@@ -1,12 +1,26 @@
-# Default settings for Rancher templates.  Merging the contents of this file
-# with the supported config file settings results in the default template for
-# Rancher.
+# Default settings for Rancher build templates.  Merging the contents of
+# this file with the supported config file settings results in the default
+# template for each supported distro.  These settings take precedence over
+# the distro's supported config settings.
 {
+	"description": "Default Rancher build template values",
+	"include_component_string": "true",
+	"min_packer_version": "0.7.0",
+	"name": ":build_name",
+	"output_dir": "../packer_templates/:build_name",
+	# output path will be used as is.
+	"output_dir_is_relative": false,
+	"source_dir": "../packer_sources",
+	# source_dir will be relative to the conf directory
+	"source_dir_is_relative": true
 	"builder_ids": [
 		"virtualbox-iso",
 		"vmware-iso"
 	],
 	"builders": {
+		# These settings are common to any builder that uses them.
+		# Not all builders will use all of these settings.  These
+		# may be overridden by a builder.
 		"common": {
 			"settings": [
 				"boot_command = boot.command",
@@ -47,12 +61,6 @@
 			}
 		}
 	},
-	"description": "Default Rancher template",
-	"include_component_string": "true",
-	"min_packer_version": "0.7.0",
-	"name": ":build_name",
-	"output_dir": "../packer_templates/:build_name",
-	"output_dir_is_relative": false,
 	"post_processor_ids": [
 		"vagrant"
 	],
@@ -83,7 +91,4 @@
 			]
 		}
 	},
-	# The default config must have a non-empty source_dir setting.
-	"source_dir": "../packer_sources",
-	"source_dir_is_relative": true
 }
