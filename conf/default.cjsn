@@ -52,6 +52,7 @@
 	"min_packer_version": "0.7.0",
 	"name": ":build_name",
 	"output_dir": "../packer_templates/:build_name",
+	"output_dir_is_relative": false,
 	"post_processor_ids": [
 		"vagrant"
 	],
