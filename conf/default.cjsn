@@ -4,7 +4,7 @@
 # the distro's supported config settings.
 {
 	"description": "Default Rancher build template values",
-	"include_component_string": "true",
+	"include_component_string": true,
 	"min_packer_version": "0.7.0",
 	"name": ":build_name",
 	"output_dir": "../packer_templates/:build_name",
