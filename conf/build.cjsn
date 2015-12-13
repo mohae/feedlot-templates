@@ -1,17 +1,16 @@
-# Builds are named configurations that specify the distro to use, at 
-# minimum, and define the final overrides and settings for generating
-# a Packer Template. The# generated Packer template will be the result
-# of merging the settings within the build configuration with the
-# settings in the default config and the distro's default settings in
-# the supported config.
+# Builds are named configurations that specify the distro to use, at minimum,
+# and define the final overrides and settings for generating a Packer Template.
+# The generated Packer template will be the result of merging the settings
+# within the build configuration with the default template for the specified
+# distro.
 {
-	# Basic build for Ubuntu 15.04 amd64, based on the server image,
-	# for virtualbox using the vagrant post-processor.  The artifact 
-	# is cleaned to minimize size before post-processing.
-	"1504-64": {
-		"description": "basic Ubuntu LTS 1504 amd64 virtualbox vagrant build",
+	# Basic build template for Ubuntu 14.04 LTS amd64, using the server image,
+	# for virtualbox with the vagrant post-processor.  The artifact is cleaned
+	# to minimize size before post-processing.
+	"1404-64": {
+		"description": "Ubuntu 14.04 LTS amd64 virtualbox vagrant build",
 		"distro": "ubuntu",
-		"release": "15.04"
+		"release": "14.04",
 		"arch": "amd64",
 		"image": "server",
 		"builder_ids": [
@@ -29,18 +28,17 @@
 					]
 				}
 			}
-		},
-
+		}
 	},
-	# Basic build for CentOS 6 x86_64, based on the minimal image, for
-	# virtualbox using the vagrant post-processor.  The artifact is
-	# cleaned to minimize size before post-processing.
+	# Basic build template for CentOS 6 x86_64, using the minimal image, for
+	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
+	# minimize size before post-processing.
 	"centos6-64": {
-		"description": "basic Centos 6 x86_64 virtualbox vagrant build",
-		"release": "6"
+		"description": "Base Centos 6 x86_64 virtualbox vagrant build",
 		"distro": "centos",
-		"arch": "x86_64",
+		"release": "6",
 		"image": "Minimal",
+		"arch": "x86_64",
 		"builder_ids": [
 			"virtualbox-iso"
 		],
@@ -56,17 +54,17 @@
 					]
 				}
 			}
-		},
+		}
 	},
-	# basic build for CentOS 7 x86_64, based on the minimal image, for
-	# virtualbox using# the vagrant post-processor.  The artifact is
-	# cleaned to minimize size before post-processing.
+	# Basic build Template for CentOS 7 x86_64, using the minimal image, for
+	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
+	# minimize size before post-processing.
 	"centos7-64": {
-		"description": "basic Centos 7 x86_64 virtualbox vagrant build",
+		"description": "example Centos 7 x86_64 virtualbox vagrant build",
 		"distro": "centos",
-		"release": "7"
-		"arch": "x86_64",
+		"release": "7",
 		"image": "Minimal",
+		"arch": "x86_64",
 		"builder_ids": [
 			"virtualbox-iso"
 		],
@@ -82,18 +80,17 @@
 					]
 				}
 			}
-		},
-
+		}
 	},
-	# basic build for Debian Jessie amd64, based on the netinst image,
-	# for virtualbox using the vagrant post-processor.  The artifact is
-	# cleaned to minimize size before post-processing.
+	# Basic build template for Debian Jessie amd64, using the netinst image, for
+	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
+	# minimize size before post-processing.
 	"jessie-64": {
-		"description": "basic Debian Jessie amd64 virtualbox vagrant build",
+		"description": "example Debian Jessie amd64 virtualbox vagrant build",
 		"distro": "debian",
-		"release": "8"
-		"arch": "amd64",
+		"release": "8"		
 		"image": "netinst",
+		"arch": "amd64",
 		"builder_ids": [
 			"virtualbox-iso"
 		],
@@ -109,6 +106,6 @@
 					]
 				}
 			}
-		},
+		}
 	}
 }

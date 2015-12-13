@@ -1,7 +1,7 @@
 # Various definitions for basic desktop based development environments.
 
 {
-	# ubuntu 15.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
+	# ubuntu 14.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
 	# VM Properties:
 	#   1 cpu
 	#   2048 RAM
@@ -36,8 +36,8 @@
 	#   * The initial user is vagrant/vagrant.  To change this, modify
 	#     the packer_sources/ubuntu/http/preseed.cfg file.
 	"1504-lubuntu-dev-vbox-vagrant": {
-		"description": "ubuntu 1504 lts amd64 w lubuntu desktop, some languages, and editors",
-		"release": "15.04"
+		"description": "ubuntu 1404 lts amd64 w lubuntu desktop, some languages, and editors",
+		"release": "14.04"
 		"arch": "amd64",
 		"distro": "ubuntu",
 		"image": "server",
