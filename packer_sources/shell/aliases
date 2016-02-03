@@ -1,0 +1,11 @@
+#!/bin/bash
+# put the target in a var
+ALIASES=/home/vagrant/.bash_aliases
+
+# some command aliases
+echo "" >> ALIASES
+echo "# simple commands made simpler" >> $ALIASES
+echo "alias c='clear'" >> $ALIASES
+echo "alias .='cd ..'" >> $ALIASES
+echo "alias ..='cd ../..'" >> $ALIASES
+echo "alias ....='cd ../../..'" >> $ALIASES

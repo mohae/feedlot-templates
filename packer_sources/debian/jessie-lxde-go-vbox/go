@@ -20,4 +20,11 @@ mkdir ~vagrant/go
 # delve debugger: https://github.com/derekparker/delve
 go get github.com/derekparker/delve/cmd/dlv
 
+# Add some aliases for Go
+ALIASES = /home/vagrant/.bash_aliases
+echo "" >> $ALIASES
+echo "# Some Go aliases" >> $ALIASES
+echo "alias s='cd ~/code/go/src/'" >> $ALIASES
+echo "alias g='cd ~/code/go/github.com/'" >> $ALIASES
+
 EOF
