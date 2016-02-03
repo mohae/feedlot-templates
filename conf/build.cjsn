@@ -8,7 +8,7 @@
 	# for virtualbox with the vagrant post-processor.  The artifact is cleaned
 	# to minimize size before post-processing.
 	"1404-64": {
-		"description": "Ubuntu 14.04 LTS amd64 virtualbox vagrant build",
+		"description": "Basic Ubuntu 14.04 LTS amd64 virtualbox vagrant build",
 		"distro": "ubuntu",
 		"release": "14.04",
 		"arch": "amd64",
@@ -34,7 +34,7 @@
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
 	"centos6-64": {
-		"description": "Base Centos 6 x86_64 virtualbox vagrant build",
+		"description": "Basic Centos 6 x86_64 virtualbox vagrant build",
 		"distro": "centos",
 		"release": "6",
 		"image": "Minimal",
@@ -60,7 +60,7 @@
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
 	"centos7-64": {
-		"description": "example Centos 7 x86_64 virtualbox vagrant build",
+		"description": "Basic Centos 7 x86_64 virtualbox vagrant build",
 		"distro": "centos",
 		"release": "7",
 		"image": "Minimal",
@@ -86,9 +86,9 @@
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
 	"jessie-64": {
-		"description": "example Debian Jessie amd64 virtualbox vagrant build",
+		"description": "Basic Debian Jessie amd64 virtualbox vagrant build",
 		"distro": "debian",
-		"release": "8"		
+		"release": "8"
 		"image": "netinst",
 		"arch": "amd64",
 		"builder_ids": [

@@ -19,18 +19,18 @@
 	#   lua 5.2
 	#   rust (via rustup.sh)
 	#   go (latest release)
-	# Installed editors: 
+	# Installed editors:
 	#   vim
 	#   emacs
-	#   atom 
+	#   atom
 	# Installed software (in addition to what comes with Ubuntu):
 	#   git
 	#   quassel
 	#   chrome
 	#   chromium
 	#   curl
-	# 
-	# Notes: 
+	#
+	# Notes:
 	#   * Timezone is set to America/Chicago; to change the timezone,
 	#     modify the packer_sources/ubuntu/shell/timezone shell script.
 	#   * The initial user is vagrant/vagrant.  To change this, modify
@@ -88,7 +88,7 @@
 	#   go (latest release)
 	#   delve (A Go debugger)
 	#   liteide (A Go ide)
-	# Installed editors: 
+	# Installed editors:
 	#   vim w spf13-vim
 	#   emacs
 	#   atom
@@ -110,13 +110,13 @@
 	# Removed packages:
 	#   xscreensaver
 	#
-	# Notes: 
+	# Notes:
 	#   * Timezone is set to America/Chicago; to change the timezone,
 	#     modify the packer_sources/debian/shell/timezone shell script.
 	#   * The initial user is vagrant/vagrant; to change it modify the
 	#     packer_sources/debian/http/preseed.cfg file.
 	"jessie-lxde-go-vbox": {
-		"description": "minimal debian jessie amd64 virtualbox vagrant build",
+		"description": "Debian jessie amd64 virtualbox vagrant build w a Go dev environment",
 		"distro": "debian",
 		"release": "8"
 		"arch": "amd64",
