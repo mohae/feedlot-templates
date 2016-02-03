@@ -34,6 +34,6 @@ All files referenced in the build templates are in the `packer_sources` director
 In this case, the location is `rancher-templates/conf` and the `source_dir` is `../packer_sources`, which means Rancher will look for the Packer source files in the `rancher-templates/packer_sources/` directory.
     
 ## TOML configs
-The TOML configuration files are no longer being maintaines as of 2015-10-10.  Rancher's default format for configuration files is now JSON, or CJSON (commented JSON).  The TOML configurations have been moved to the `rancher-templates/conf/toml` directory.  They are still usable and will build Packer templates.  To use these files set the `RANCHER_CONF_DIR` to `rancher-templates/conf/toml`.
+The TOML configuration files are no longer being maintained as of 2015-10-10.  Rancher's default format for configuration files is now JSON, or CJSON (commented JSON).  The TOML configurations have been moved to the `rancher-templates/conf/toml` directory.  They are still usable and will build Packer templates.  To use these files set the `RANCHER_CONF_DIR` to `rancher-templates/conf/toml`.
 
 Any updates made to the `cjsn`, CJSON, configs in the `rancher-templates/conf` directory will not be reflected in the TOML configs.
