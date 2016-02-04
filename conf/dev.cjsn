@@ -37,7 +37,7 @@
 	#     the packer_sources/ubuntu/http/preseed.cfg file.
 	"1504-lubuntu-dev-vbox-vagrant": {
 		"description": "ubuntu 1404 lts amd64 w lubuntu desktop, some languages, and editors",
-		"release": "14.04"
+		"release": "14.04",
 		"arch": "amd64",
 		"distro": "ubuntu",
 		"image": "server",
@@ -75,7 +75,7 @@
 					]
 				}
 			}
-		},
+		}
 	},
 	# Debian Jessie w lxde desktop and Go, targeting virtualbox.
 	# VM Properties:
@@ -118,7 +118,7 @@
 	"jessie-lxde-go-vbox": {
 		"description": "Debian jessie amd64 virtualbox vagrant build w a Go dev environment",
 		"distro": "debian",
-		"release": "8"
+		"release": "8",
 		"arch": "amd64",
 		"image": "netinst",
 		"builder_types": [
@@ -157,6 +157,6 @@
 					]
 				}
 			}
-		},
+		}
 	}
 }

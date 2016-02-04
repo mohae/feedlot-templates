@@ -10,7 +10,7 @@
 	"output_dir_is_relative": false,
 	"source_dir": "../packer_sources",
 	# source_dir will be relative to the conf directory
-	"source_dir_is_relative": true
+	"source_dir_is_relative": true,
 	"builder_ids": [
 		"virtualbox-iso",
 		"vmware-iso"
@@ -88,5 +88,5 @@
 				"execute_command = execute.command"
 			]
 		}
-	},
+	}
 }
