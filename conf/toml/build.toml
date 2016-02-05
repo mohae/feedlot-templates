@@ -10,7 +10,7 @@ description = "minimal ubuntu LTS 1404 amd64 virtualbox vagrant build"
 arch = "amd64"
 image = "server"
 release = "14.04"
-builder_types = [
+builder_ids = [
 	"virtualbox-iso"
 ]
 	[1404-64-vbox-vagrant.provisioners.shell.arrays]
@@ -27,7 +27,7 @@ description = "minimal ubuntu LTS 1404 amd64 virtualbox vagrant build"
 arch = "amd64"
 image = "server"
 release = "15.04"
-builder_types = [
+builder_ids = [
 	"virtualbox-iso"
 ]
 	[1504-64-vbox-vagrant.provisioners.shell.arrays]
@@ -44,7 +44,7 @@ description = "minimal centos 6 x86_64 virtualbox vagrant build"
 arch = "x86_64"
 image = "Minimal"
 release = "6"
-builder_types = [
+builder_ids = [
 	"virtualbox-iso"
 ]
 	[centos6-64-vbox-vagrant.provisioners.shell.arrays]
@@ -62,7 +62,7 @@ description = "minimal centos 7 x86_64 virtualbox vagrant build"
 arch = "x86_64"
 image = "Minimal"
 release = "7"
-builder_types = [
+builder_ids = [
 	"virtualbox-iso"
 ]
 	[centos7-64-vbox-vagrant.provisioners.shell.arrays]
@@ -80,7 +80,7 @@ description = "minimal debian jessie amd64 virtualbox vagrant build"
 arch = "amd64"
 image = "netinst"
 release = "8"
-builder_types = [
+builder_ids = [
 	"virtualbox-iso"
 ]
 	[jessie-64-vbox-vagrant.provisioners.shell.arrays]

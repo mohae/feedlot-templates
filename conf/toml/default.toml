@@ -8,7 +8,7 @@ output_dir = "../packer-templates/:build_name"
 source_dir = "../packer_sources"
 source_dir_is_relative = true
 include_component_string = true
-min_packer_version = "0.7.0"
+min_packer_version = "0.8.0"
 builder_types = [
 	"virtualbox-iso",
 	"vmware-iso",
@@ -24,6 +24,7 @@ provisioner_types = [
 		settings = [	
 			"boot_command = boot.command",
 			"boot_wait = 5s",
+            "communicator=ssh",
 			"disk_size = 40000",
 			"guest_os_type=",
 			"headless = true",
