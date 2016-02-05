@@ -6,6 +6,13 @@ wget -qO- https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sud
 # liteide: latest
 wget -qO- http://sourceforge.net/projects/liteide/files/latest/download?source=files | sudo tar -C /usr/local -xj
 
+# Add some aliases for Go
+ALIASES = /home/vagrant/.bash_aliases
+echo "" >> $ALIASES
+echo "# Some Go aliases" >> $ALIASES
+echo "alias s='cd ~/code/go/src/'" >> $ALIASES
+echo "alias g='cd ~/code/go/github.com/'" >> $ALIASES
+
 # Go should be installed under the user not root
 su - vagrant <<'EOF'
 export GOPATH=$HOME/go
@@ -19,12 +26,5 @@ mkdir ~vagrant/go
 
 # delve debugger: https://github.com/derekparker/delve
 go get github.com/derekparker/delve/cmd/dlv
-
-# Add some aliases for Go
-ALIASES = /home/vagrant/.bash_aliases
-echo "" >> $ALIASES
-echo "# Some Go aliases" >> $ALIASES
-echo "alias s='cd ~/code/go/src/'" >> $ALIASES
-echo "alias g='cd ~/code/go/github.com/'" >> $ALIASES
 
 EOF
