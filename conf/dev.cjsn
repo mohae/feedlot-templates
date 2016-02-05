@@ -35,7 +35,7 @@
 	#     modify the packer_sources/ubuntu/shell/timezone shell script.
 	#   * The initial user is vagrant/vagrant.  To change this, modify
 	#     the packer_sources/ubuntu/http/preseed.cfg file.
-	"1504-lubuntu-dev-vbox-vagrant": {
+	"1404-lubuntu-dev-vbox-vagrant": {
 		"description": "ubuntu 1404 lts amd64 w lubuntu desktop, some languages, and editors",
 		"release": "14.04",
 		"arch": "amd64",
