@@ -7,7 +7,7 @@
 	# Basic build template for Ubuntu 14.04 LTS amd64, using the server image,
 	# for virtualbox with the vagrant post-processor.  The artifact is cleaned
 	# to minimize size before post-processing.
-	"1404-64": {
+	"1404-64-vbox-vagrant": {
 		"description": "Basic Ubuntu 14.04 LTS amd64 virtualbox vagrant build",
 		"distro": "ubuntu",
 		"release": "14.04",
@@ -34,7 +34,7 @@
 	# Basic build template for CentOS 6 x86_64, using the minimal image, for
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
-	"centos6-64": {
+	"centos6-64-vbox-vagrant": {
 		"description": "Basic Centos 6 x86_64 virtualbox vagrant build",
 		"distro": "centos",
 		"release": "6",
@@ -61,7 +61,7 @@
 	# Basic build Template for CentOS 7 x86_64, using the minimal image, for
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
-	"centos7-64": {
+	"centos7-64-vbox-vagrant": {
 		"description": "Basic Centos 7 x86_64 virtualbox vagrant build",
 		"distro": "centos",
 		"release": "7",
@@ -88,7 +88,7 @@
 	# Basic build template for Debian Jessie amd64, using the netinst image, for
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
-	"jessie-64": {
+	"jessie-64-vbox-vagrant": {
 		"description": "Basic Debian Jessie amd64 virtualbox vagrant build",
 		"distro": "debian",
 		"release": "8",
