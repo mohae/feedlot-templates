@@ -1,0 +1,15 @@
+# This is the build list file for Rancher.
+# A list consists of one or more Rancher build template names.
+{
+	# build all basic builds
+	"all": {
+		"builds": [
+			"1404-64-vbox-vagrant",
+			"1404-lubuntu-dev-vbox-vagrant",
+			"centos6-64-vbox-vagrant",
+			"centos7-64-vbox-vagrant",
+			"jessie-64-vbox-vagrant",
+			"jessie-lxde-go-vbox"
+		]
+	}
+}
