@@ -3,7 +3,7 @@
 ALIASES=/home/vagrant/.bash_aliases
 
 # some command aliases
-echo "" >> ALIASES
+echo "" >> $ALIASES
 echo "# simple commands made simpler" >> $ALIASES
 echo "alias c='clear'" >> $ALIASES
 echo "alias .='cd ..'" >> $ALIASES
