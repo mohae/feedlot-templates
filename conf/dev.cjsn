@@ -41,7 +41,7 @@
 		"arch": "amd64",
 		"distro": "ubuntu",
 		"image": "server",
-		"builder_types": [
+		"builder_ids": [
 			"virtualbox-iso"
 		],
 		"builders": {
@@ -122,7 +122,7 @@
 		"release": "8",
 		"arch": "amd64",
 		"image": "netinst",
-		"builder_types": [
+		"builder_ids": [
 			"virtualbox-iso"
 		],
 		"builders": {
@@ -140,7 +140,7 @@
 		},
 		# unset the vagrant post-processor; no post-processor will be
 		# used since none is set.
-		"post_processor_types": [],
+		"post_processor_ids": [],
 		"provisioners": {
 			"shell": {
 				"arrays": {
