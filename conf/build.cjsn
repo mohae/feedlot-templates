@@ -23,6 +23,7 @@
 						"setup",
 						"sudoers",
 						"user_vagrant",
+						"aliases",
 						"vbox",
 						"cleanup"
 					]
@@ -49,6 +50,7 @@
 						"setup",
 						"sudoers",
 						"user_vagrant",
+						"aliases",
 						"vbox",
 						"cleanup"
 					]
@@ -75,6 +77,7 @@
 						"setup",
 						"sudoers",
 						"user_vagrant",
+						"aliases",
 						"vbox",
 						"cleanup"
 					]
@@ -101,6 +104,7 @@
 						"setup",
 						"sudoers",
 						"user_vagrant",
+						"aliases",
 						"vbox",
 						"cleanup"
 					]
