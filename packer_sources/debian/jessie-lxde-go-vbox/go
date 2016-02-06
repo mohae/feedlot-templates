@@ -7,7 +7,7 @@ wget -qO- https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sud
 wget -qO- http://sourceforge.net/projects/liteide/files/latest/download?source=files | sudo tar -C /usr/local -xj
 
 # Add some aliases for Go
-ALIASES = /home/vagrant/.bash_aliases
+ALIASES=/home/vagrant/.bash_aliases
 echo "" >> $ALIASES
 echo "# Some Go aliases" >> $ALIASES
 echo "alias s='cd ~/code/go/src/'" >> $ALIASES
