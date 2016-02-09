@@ -8,6 +8,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y lightdm
 # add irc client
 DEBIAN_FRONTEND=noninteractive apt-get install -y quassel
 # remove screensaver
-DEBIAN_FRONTEND=noninteractive apt-get install -y apt-get remove xscreensaver
+DEBIAN_FRONTEND=noninteractive apt-get install -y apt-get purge xscreensaver
 # install sound
 DEBIAN_FRONTEND=noninteractive apt-get install -y alsa-utils

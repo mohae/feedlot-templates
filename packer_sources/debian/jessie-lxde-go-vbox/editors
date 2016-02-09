@@ -16,4 +16,5 @@ su - vagrant <<'EOF'
 curl http://j.mp/spf13-vim3 -L -o - | sh
 echo "let g:spf13_bundle_groups=['general', 'neocomplete', 'programming', 'ruby', 'python', 'go', 'javascript', 'html', 'misc', 'writing' ]" >> ~/.vimrc.before.local 
 vim +BundleInstall! +qall
+:GoInstallBinaries
 EOF

@@ -10,8 +10,8 @@ wget -qO- http://sourceforge.net/projects/liteide/files/latest/download?source=f
 ALIASES=/home/vagrant/.bash_aliases
 echo "" >> $ALIASES
 echo "# Some Go aliases" >> $ALIASES
-echo "alias s='cd ~/code/go/src/'" >> $ALIASES
-echo "alias g='cd ~/code/go/github.com/'" >> $ALIASES
+echo "alias s='cd ~/go/src/'" >> $ALIASES
+echo "alias g='cd ~/go/github.com/'" >> $ALIASES
 
 # Go should be installed under the user not root
 su - vagrant <<'EOF'
