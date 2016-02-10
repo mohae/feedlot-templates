@@ -85,29 +85,32 @@
 	#   128 VRAM
 	#   3d acceleration enabled
 	#   bidirectional clipboard
+	#   audio dsound
+	#   audiocontroller ac97
 	# Installed Go stuff:
 	#   go (latest release)
 	#   delve (A Go debugger)
 	#   liteide (A Go ide)
 	# Installed editors:
-	#   vim w spf13-vim
-	#   emacs
 	#   atom
+	#   emacs
+	#   vim w spf13-vim
 	# Installed software (in addition to what comes with Ubuntu):
-	#   git
-	#   quassel
+	#   alsa-utils
+	#   build-essential
+	#   bzip2
 	#   chrome
 	#   chromium
 	#   curl
-	#   alsa-utils
-	#   bzip2
+	#   dkms
+	#   git
+	#   konsole
 	#   liblz4-tool
+	#   linux-headers-$(uname -r)
+	#   quassel
 	#   rsync
 	#   tree
 	#   wget
-	#   build-essential
-	#   dkms
-	#   linux-headers-$(uname -r)
 	# Removed packages:
 	#   xscreensaver
 	#
@@ -129,11 +132,13 @@
 			"virtualbox-iso": {
 				"arrays": {
 					"vboxmanage": [
+						"accelerate3d=on",
+						"audio=dsound",
+						"audiocontroller=ac97",
+						"clipboard=bidirectional",
 						"cpus=1",
 						"memory=2048",
-						"vram=128",
-						"accelerate3d=on",
-						"clipboard=bidirectional"
+						"vram=128"
 					]
 				}
 			}
