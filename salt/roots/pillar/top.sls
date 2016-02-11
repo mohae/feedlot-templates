@@ -7,3 +7,4 @@ base:
     - groups
     - timezone
     - vim
+    - firewall
