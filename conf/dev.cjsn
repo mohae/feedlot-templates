@@ -8,27 +8,30 @@
 	#   128 VRAM
 	#   3d acceleration enabled
 	#   bidirectional clipboard
+	#   audio dsound
+	#   audiocontroller ac97
 	# Installed dev stuff (in addition to what comes with Ubuntu):
 	#   build-essential
+	#   gettext
+	#   go (latest release)
+	#   dart (latest stable release)
+	#   java (apt)
 	#   libssl-dev
 	#   libexpat1-dev
-	#   gettext
-	#   dart (latest stable release)
-	#   typescript (npm)
-	#   java (apt)
 	#   lua 5.2
 	#   rust (via rustup.sh)
-	#   go (latest release)
+	#   typescript (npm)
 	# Installed editors:
-	#   vim
-	#   emacs
 	#   atom
+	#   emacs
+	#   vim
 	# Installed software (in addition to what comes with Ubuntu):
-	#   git
-	#   quassel
 	#   chrome
 	#   chromium
 	#   curl
+	#   git
+	#   konsole
+	#   quassel
 	#
 	# Notes:
 	#   * Timezone is set to America/Chicago; to change the timezone,
@@ -48,11 +51,13 @@
 			"virtualbox-iso": {
 				"arrays": {
 					"vboxmanage": [
+						"accelerate3d=on",
+						"audio=dsound",
+						"audiocontroller=ac97",
+						"clipboard=bidirectional",
 						"cpus=1",
 						"memory=2048",
-						"vram=128",
-						"accelerate3d=on",
-						"clipboard=bidirectional"
+						"vram=128"
 					]
 				}
 			}
