@@ -1,3 +1,4 @@
 #!/bin/bash
 # install a lightweight desktop
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends lubuntu-desktop
+DEBIAN_FRONTEND=noninteractive apt-get install -y konsole
