@@ -5,12 +5,13 @@
 	"include_component_string": true,
 	"min_packer_version": "0.8.0",
 	"name": ":build_name",
-	"output_dir": "packer-templates/:build_name",
-	# output path will be used as is.
-	"output_dir_is_relative": false,
+	"packer_output_dir": "../packer-boxes/:build_name",
 	"source_dir": "../packer_sources",
-	# source_dir will be relative to the conf directory
+	# source_dir will be relative to the conf dir
 	"source_dir_is_relative": true,
+	"template_output_dir": "packer-templates/:build_name",
+	# template output path is relative to CWD
+	"template_output_dir_is_relative": true,
 	"builder_ids": [
 		"virtualbox-iso",
 		"vmware-iso"
@@ -29,7 +30,7 @@
 				"headless = true",
 				"http_directory = http",
 				"iso_checksum_type = sha256",
-				"output_directory = :output_dir",
+				"output_directory = :packer_output_dir",
 				"shutdown_command = shutdown.command",
 				"ssh_password = vagrant",
 				"ssh_port = 22",
