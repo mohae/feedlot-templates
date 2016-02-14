@@ -161,6 +161,7 @@
 						"aliases",
 						"timezone",
 						"desktop",
+						"sound",
 						"browsers",
 						"editors",
 						"go",
