@@ -2,12 +2,12 @@
 # references:
 #    http://vstone.eu/reducing-vagrant-box-size/
 #    https://github.com/mitchellh/vagrant/issues/343
-DEBIAN_FRONTEND=noninteractive apt-get -y install deborphan
-DEBIAN_FRONTEND=noninteractive deborphan | xargs sudo apt-get purge -y
-DEBIAN_FRONTEND=noninteractive apt-get clean -y
-DEBIAN_FRONTEND=noninteractive apt-get autoclean -y
-DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
-DEBIAN_FRONTEND=noninteractive apt-get purge -y locate
+apt-get -y install deborphan
+deborphan | xargs sudo apt-get purge -y
+apt-get clean -y
+apt-get autoclean -y
+apt-get autoremove -y
+apt-get purge -y locate
 
 # delete old dev libraries
 dpkg -l | grep -- '-dev' | xargs apt-get purge -y

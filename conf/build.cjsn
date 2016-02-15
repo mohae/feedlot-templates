@@ -20,9 +20,9 @@
 			"shell": {
 				"arrays": {
 					"scripts": [
+						"user_vagrant",
 						"setup",
 						"sudoers",
-						"user_vagrant",
 						"aliases",
 						"vbox",
 						"cleanup"
@@ -101,9 +101,9 @@
 			"shell": {
 				"arrays": {
 					"scripts": [
+						"user_vagrant",
 						"setup",
 						"sudoers",
-						"user_vagrant",
 						"aliases",
 						"vbox",
 						"cleanup"

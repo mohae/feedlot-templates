@@ -80,9 +80,9 @@
 		"shell": {
 			"arrays": {
 				"scripts": [
+					"user_vagrant",
 					"setup",
 					"sudoers",
-					"user_vagrant",
 					"cleanup"
 				]
 			},

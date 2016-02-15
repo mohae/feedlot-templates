@@ -66,9 +66,9 @@
 			"shell": {
 				"arrays": {
 					"scripts": [
+						"user_vagrant",
 						"setup",
 						"sudoers",
-						"user_vagrant",
 						"aliases",
 						"desktop",
 						"browsers",
@@ -155,9 +155,9 @@
 			"shell": {
 				"arrays": {
 					"scripts": [
+						"user_vagrant",
 						"setup",
 						"sudoers",
-						"user_vagrant",
 						"aliases",
 						"timezone",
 						"desktop",
