@@ -4,10 +4,14 @@ PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 # install vim and emacs
 apt-get install -y vim emacs
 
+# alternate text editor
+apt-get install -y gedit
+
 # install current atom: https://atom.io
-wget https://atom.io/download/deb
+apt-get install 0-y gvfs-bin
+curl -L https://atom.io/download/deb > atom-amd64.deb
 dpkg --install atom-amd64.deb
-apt-get install -y -f
+#apt-get install -y -f
 rm -f /home/vagrant/atom-amd64.deb
 
 # vim.spf13.com
