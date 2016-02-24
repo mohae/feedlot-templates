@@ -1,2 +1,2 @@
 #!/bin/bash
-apt-get install -y dbus
+DEBIAN_FRONTEND=noninteractive apt-get install -y dbus

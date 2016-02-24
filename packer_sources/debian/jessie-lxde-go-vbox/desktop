@@ -1,15 +1,15 @@
 #!/bin/bash
 # install a lightweight desktop
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-apt-get update
-apt-get install -y xorg xserver-xorg
-apt-get install -y lxde
-apt-get install -y lightdm
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y xorg xserver-xorg
+DEBIAN_FRONTEND=noninteractive apt-get install -y lxde
+DEBIAN_FRONTEND=noninteractive apt-get install -y lightdm
 # add irc client
-apt-get install -y quassel
+DEBIAN_FRONTEND=noninteractive apt-get install -y quassel
 # remove screensaver
-apt-get purge -y xscreensaver
+DEBIAN_FRONTEND=noninteractive apt-get purge -y xscreensaver
 # install sound
-apt-get install -y alsa-utils
+DEBIAN_FRONTEND=noninteractive apt-get install -y alsa-utils
 # add konsole
-apt-get -y install konsole
+DEBIAN_FRONTEND=noninteractive apt-get -y install konsole

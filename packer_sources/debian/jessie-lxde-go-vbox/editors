@@ -2,22 +2,22 @@
 # editors
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 # install vim and emacs
-apt-get install -y vim emacs
+DEBIAN_FRONTEND=noninteractive apt-get install -y vim emacs
 
 # alternate text editor
-apt-get install -y gedit
+DEBIAN_FRONTEND=noninteractive apt-get install -y gedit
 
 # install current atom: https://atom.io
-apt-get install 0-y gvfs-bin
-curl -L https://atom.io/download/deb > atom-amd64.deb
-dpkg --install atom-amd64.deb
+DEBIAN_FRONTEND=noninteractive apt-get install 0-y gvfs-bin
+DEBIAN_FRONTEND=noninteractive curl -L https://atom.io/download/deb > atom-amd64.deb
+DEBIAN_FRONTEND=noninteractive dpkg --install atom-amd64.deb
 #apt-get install -y -f
-rm -f /home/vagrant/atom-amd64.deb
+DEBIAN_FRONTEND=noninteractive rm -f /home/vagrant/atom-amd64.deb
 
-# vim.spf13.com
+# vundle and .vimrc (you should get your own .vimrc)
+# Install the Go binaries for vim-go
 su - vagrant <<'EOF'
-curl http://j.mp/spf13-vim3 -L -o - | sh
-echo "let g:spf13_bundle_groups=['general', 'neocomplete', 'programming', 'ruby', 'python', 'go', 'javascript', 'html', 'misc', 'writing' ]" >> ~/.vimrc.before.local 
-vim +BundleInstall! +qall
-:GoInstallBinaries
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  wget https://raw.githubusercontent.com/mohae/vimrc/master/.vimrc
+  apm install go-plus
 EOF

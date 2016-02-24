@@ -1,12 +1,12 @@
 #!/bin/bash
 # install browsers
 # chrome
-PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i google-chrome-stable_current_amd64.deb
-apt-get install -y -f
-rm -f google-chrome-stable_current_amd64.deb
+DEBIAN_FRONTEND=noninteractive PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+DEBIAN_FRONTEND=noninteractive wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+DEBIAN_FRONTEND=noninteractive dpkg -i google-chrome-stable_current_amd64.deb
+DEBIAN_FRONTEND=noninteractive apt-get install -y -f
+DEBIAN_FRONTEND=noninteractive rm -f google-chrome-stable_current_amd64.deb
 
 # chromium
-apt-get update
-apt-get install -y chromium chromium-l10n
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y chromium chromium-l10n

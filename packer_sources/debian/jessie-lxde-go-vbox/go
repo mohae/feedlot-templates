@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y gvfs-bin
 wget -qO- https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sudo tar xz -C /usr/local
 
 # liteide: latest
