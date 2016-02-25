@@ -3,7 +3,8 @@
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 VBOX_VERSION=$(cat ~/.vbox_version)
 
-apt-get install -y xserver-xorg xserver-xorg-core
+DEBIAN_FRONTEND=noninteractive apt-get install -fy
+DEBIAN_FRONTEND=noninteractive apt-get install -y xserver-xorg xserver-xorg-core
 mkdir /media/iso
 mount -o loop /home/vagrant/VBoxGuestAdditions.iso /media/iso
 sh /media/iso/VBoxLinuxAdditions.run

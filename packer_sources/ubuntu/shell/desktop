@@ -1,4 +1,15 @@
 #!/bin/bash
 # install a lightweight desktop
-apt-get install -y --no-install-recommends lubuntu-desktop
-apt-get install -y konsole
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends lubuntu-desktop
+DEBIAN_FRONTEND=noninteractive apt-get install -y konsole
+
+# alternate text editor
+DEBIAN_FRONTEND=noninteractive apt-get install -y gedit
+
+# install current atom: https://atom.io
+DEBIAN_FRONTEND=noninteractive apt-get install -y gvfs-bin
+curl -L https://atom.io/download/deb > atom-amd64.deb
+dpkg --install atom-amd64.deb
+DEBIAN_FRONTEND=noninteractive apt-get install -y -f
+rm -f /home/vagrant/atom-amd64.deb
+

@@ -2,31 +2,31 @@
 # install some stuff we'll need. Some of this may already be installed but
 # that's ok.
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-apt-get update
-apt-get install -y build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext
 
 # install git
-apt-get install -y git
+DEBIAN_FRONTEND=noninteractive apt-get install -y git
 
 # install dart: who knows if this will get widely adopted, but it's fun to play with.
 # Enable HTTPS for apt.
-apt-get install apt-transport-https
+DEBIAN_FRONTEND=noninteractive apt-get install apt-transport-https
 # Get the Google Linux package signing key.
 sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
 # Set up the location of the stable repository.
 sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-apt-get update
-apt-get -y install dart
+DEBIAN_FRONTEND=noninteractive apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get -y install dart
 
 # typescript
 npm install -g typescript
 
 # java
-apt-get install -y default-jre
-apt-get install -y default-jdk
+DEBIAN_FRONTEND=noninteractive apt-get install -y default-jre
+DEBIAN_FRONTEND=noninteractive apt-get install -y default-jdk
 
 # lua: 5.2 was latest at time of writing.
-apt-get install -y lua5.2
+DEBIAN_FRONTEND=noninteractive apt-get install -y lua5.2
 
 # rust
 wget https://static.rust-lang.org/rustup.sh -O /tmp/rustup.sh

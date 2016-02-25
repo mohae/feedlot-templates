@@ -2,42 +2,44 @@
 # references:
 #    http://vstone.eu/reducing-vagrant-box-size/
 #    https://github.com/mitchellh/vagrant/issues/343
-apt-get -y install deborphan
-deborphan | xargs sudo apt-get purge -y
-apt-get clean -y
-apt-get autoclean -y
-apt-get autoremove -y
-apt-get purge -y locate
+PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+DEBIAN_FRONTEND=noninteractive apt-get install -fy
+DEBIAN_FRONTEND=noninteractive apt-get -y install deborphan
+DEBIAN_FRONTEND=noninteractive deborphan | xargs apt-get purge -y
+DEBIAN_FRONTEND=noninteractive apt-get clean -y
+DEBIAN_FRONTEND=noninteractive apt-get autoclean -y
+DEBIAN_FRONTEND=noninteractive apt-get autoremove -y
+DEBIAN_FRONTEND=noninteractive apt-get purge -y locate
 
 # delete old dev libraries
-dpkg -l | grep -- '-dev' | xargs apt-get purge -y
+DEBIAN_FRONTEND=noninteractive dpkg -l | grep -- '-dev' | xargs apt-get purge -y
 
 # the history isn't needed
-unset HISTFILE
-rm -f /root/.bash_history
-rm -f /home/vagrant/.bash_history
+DEBIAN_FRONTEND=noninteractive unset HISTFILE
+DEBIAN_FRONTEND=noninteractive rm -f /root/.bash_history
+DEBIAN_FRONTEND=noninteractive rm -f /home/vagrant/.bash_history
 
 # log files
-find /var/log -type f | while read f; do echo -ne '' > $f; done;
+DEBIAN_FRONTEND=noninteractive find /var/log -type f | while read f; do echo -ne '' > $f; done;
 
 echo 'Whiteout root'
-count=`df --sync -kP / | tail -n1  | awk -F ' ' '{print $4}'`; 
-count=$((count-1))
-dd if=/dev/zero of=/tmp/whitespace bs=1024 count=$count;
-rm /tmp/whitespace;
+DEBIAN_FRONTEND=noninteractive count=`df --sync -kP / | tail -n1  | awk -F ' ' '{print $4}'`; 
+DEBIAN_FRONTEND=noninteractive count=$((count-1))
+DEBIAN_FRONTEND=noninteractive dd if=/dev/zero of=/tmp/whitespace bs=1024 count=$count;
+DEBIAN_FRONTEND=noninteractive rm /tmp/whitespace;
  
 echo 'Whiteout /boot'
-count=`df --sync -kP /boot | tail -n1 | awk -F ' ' '{print $4}'`;
-count=$((count-1))
-dd if=/dev/zero of=/boot/whitespace bs=1024 count=$count;
-rm /boot/whitespace;
+DEBIAN_FRONTEND=noninteractive count=`df --sync -kP /boot | tail -n1 | awk -F ' ' '{print $4}'`;
+DEBIAN_FRONTEND=noninteractive count=$((count-1))
+DEBIAN_FRONTEND=noninteractive dd if=/dev/zero of=/boot/whitespace bs=1024 count=$count;
+DEBIAN_FRONTEND=noninteractive rm /boot/whitespace;
  
-swappart=`cat /proc/swaps | tail -n1 | awk -F ' ' '{print $1}'`
-swapoff $swappart;
-dd if=/dev/zero of=$swappart;
-mkswap $swappart;
-swapon $swappart;
+DEBIAN_FRONTEND=noninteractive swappart=`cat /proc/swaps | tail -n1 | awk -F ' ' '{print $1}'`
+DEBIAN_FRONTEND=noninteractive swapoff $swappart;
+DEBIAN_FRONTEND=noninteractive dd if=/dev/zero of=$swappart;
+DEBIAN_FRONTEND=noninteractive mkswap $swappart;
+DEBIAN_FRONTEND=noninteractive swapon $swappart;
 
 # zero all empty space
-dd if=/dev/zero of=/EMPTY bs=1M
-rm -f /EMPTY
+DEBIAN_FRONTEND=noninteractive dd if=/dev/zero of=/EMPTY bs=1M
+DEBIAN_FRONTEND=noninteractive rm -f /EMPTY
