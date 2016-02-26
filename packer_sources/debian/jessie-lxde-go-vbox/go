@@ -2,7 +2,12 @@
 PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 DEBIAN_FRONTEND=noninteractive apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -y gvfs-bin
-wget -qO- https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sudo tar xz -C /usr/local
+su - vagrant <<'EOF'
+wget https://raw.githubusercontent.com/mohae/install-go/master/install_current
+chmod +x install_current
+./install_current
+rm install_current
+EOF
 
 # liteide: latest
 wget -qO- http://sourceforge.net/projects/liteide/files/latest/download?source=files | sudo tar -C /usr/local -xj
