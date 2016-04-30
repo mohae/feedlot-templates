@@ -31,6 +31,33 @@
 			}
 		}
 	},
+	# Basic build template for Ubuntu 16.04 LTS amd64, using the server image,
+	# for virtualbox with the vagrant post-processor.  The artifact is cleaned
+	# to minimize size before post-processing.
+	"1604-64-vbox-vagrant": {
+		"description": "Basic Ubuntu 16.04 LTS amd64 virtualbox vagrant build",
+		"distro": "ubuntu",
+		"release": "16.04",
+		"arch": "amd64",
+		"image": "server",
+		"builder_ids": [
+			"virtualbox-iso"
+		],
+		"provisioners": {
+			"shell": {
+				"arrays": {
+					"scripts": [
+						"user_vagrant",
+						"setup",
+						"sudoers",
+						"aliases",
+						"vbox",
+						"cleanup"
+					]
+				}
+			}
+		}
+	},	
 	# Basic build template for CentOS 6 x86_64, using the minimal image, for
 	# virtualbox with the vagrant post-processor.  The artifact is cleaned to
 	# minimize size before post-processing.
