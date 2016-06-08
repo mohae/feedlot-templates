@@ -21,10 +21,6 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install dart
 # typescript
 npm install -g typescript
 
-# java
-DEBIAN_FRONTEND=noninteractive apt-get install -y default-jre
-DEBIAN_FRONTEND=noninteractive apt-get install -y default-jdk
-
 # lua: 5.2 was latest at time of writing.
 DEBIAN_FRONTEND=noninteractive apt-get install -y lua5.2
 

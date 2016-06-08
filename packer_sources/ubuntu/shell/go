@@ -9,10 +9,10 @@ echo "alias g='cd ~/go/src/github.com/'" >> $ALIASES
 
 # Go should be installed under the user not root
 su vagrant  <<'EOF'
-echo export GOPATH=$HOME/go >> ~vagrant/.bashrc
-echo export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin >> ~vagrant/.bashrc
+echo export GOPATH=$HOME/code/go >> ~vagrant/.bashrc
+echo export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin >> ~vagrant/.bashrc
 exec bash
 wget -qO- https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sudo tar xz -C /usr/local
-mkdir ~vagrant/go
+mkdir -p ~vagrant/code/go
 
 EOF

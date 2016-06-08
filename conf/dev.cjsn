@@ -86,7 +86,7 @@
 	# ubuntu 16.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
 	# VM Properties:
 	#   1 cpu
-	#   2048 RAM
+	#   4096 RAM
 	#   128 VRAM
 	#   3d acceleration enabled
 	#   bidirectional clipboard
@@ -105,6 +105,7 @@
 	#   typescript (npm)
 	# Installed editors:
 	#   atom
+	#   eclipse
 	#   emacs
 	#   vim
 	# Installed software (in addition to what comes with Ubuntu):
@@ -138,13 +139,23 @@
 						"audiocontroller=ac97",
 						"clipboard=bidirectional",
 						"cpus=1",
-						"memory=2048",
+						"memory=4096",
 						"vram=128"
 					]
 				}
 			}
 		},
+		# Define provisioners to override the default because a file provisioner is also being used.
+		"provisioners_ids": [
+			"file",
+			"shell"
+		],
 		"provisioners": {
+			"file": {
+				"source": "files/",
+				"destination": "/tmp/install_files/",
+				"type": "file"
+			},
 			"shell": {
 				"arrays": {
 					"scripts": [
@@ -156,6 +167,104 @@
 						"browsers",
 						"editors",
 						"dev",
+						"java", 
+						"go",
+						"timezone",
+						"vbox",
+						"cleanup"
+					]
+				}
+			}
+		}
+	},
+	# ubuntu 16.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
+	# VM Properties:
+	#   1 cpu
+	#   4096 RAM
+	#   128 VRAM
+	#   3d acceleration enabled
+	#   bidirectional clipboard
+	#   audio dsound
+	#   audiocontroller ac97
+	# Installed dev stuff (in addition to what comes with Ubuntu):
+	#   build-essential
+	#   gettext
+	#   go (latest release)
+	#   dart (latest stable release)
+	#   java (apt)
+	#   libssl-dev
+	#   libexpat1-dev
+	#   lua 5.2
+	#   rust (via rustup.sh)
+	#   typescript (npm)
+	# Installed editors:
+	#   atom
+	#   eclipse
+	#   emacs
+	#   vim
+	# Installed software (in addition to what comes with Ubuntu):
+	#   chrome
+	#   chromium
+	#   curl
+	#   git
+	#   konsole
+	#   quassel
+	#
+	# Notes:
+	#   * Timezone is set to America/Chicago; to change the timezone,
+	#     modify the packer_sources/ubuntu/shell/timezone shell script.
+	#   * The initial user is vagrant/vagrant.  To change this, modify
+	#     the packer_sources/ubuntu/http/preseed.cfg file.
+	"1604-lubuntu-dev-vbox": {
+		"description": "ubuntu 1604 lts amd64 w lubuntu desktop, some languages, and editors",
+		"release": "16.04",
+		"arch": "amd64",
+		"distro": "ubuntu",
+		"image": "server",
+		"builder_ids": [
+			"virtualbox-iso"
+		],
+		"builders": {
+			"virtualbox-iso": {
+				"arrays": {
+					"vboxmanage": [
+						"accelerate3d=on",
+						"audio=dsound",
+						"audiocontroller=ac97",
+						"clipboard=bidirectional",
+						"cpus=1",
+						"memory=4096",
+						"vram=128"
+					]
+				}
+			}
+		},
+		# unset the vagrant post-processor; no post-processor will be
+		# used since none is set.
+		"post_processor_ids": [],
+		# Define provisioners to override the default because a file provisioner is also being used.
+		"provisioners_ids": [
+			"file",
+			"shell"
+		],
+		"provisioners": {
+			"file": {
+				"source": "files/",
+				"destination": "/tmp/install_files/",
+				"type": "file"
+			},
+			"shell": {
+				"arrays": {
+					"scripts": [
+						"user_vagrant",
+						"setup",
+						"sudoers",
+						"aliases",
+						"desktop",
+						"browsers",
+						"editors",
+						"dev",
+						"java", 
 						"go",
 						"timezone",
 						"vbox",

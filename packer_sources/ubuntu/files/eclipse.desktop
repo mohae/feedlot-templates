@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Eclipse
+Comment=Eclipse IDE for Java Developers
+GenericName=Eclipse
+Exec=/usr/share/eclipse/eclipse %U
+Icon=eclipse
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Development;
+MimeType=text/plain;
