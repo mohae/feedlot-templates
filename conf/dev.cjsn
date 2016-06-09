@@ -1,5 +1,4 @@
 # Various definitions for basic desktop based development environments.
-
 {
 	# ubuntu 14.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
 	# VM Properties:
@@ -146,17 +145,16 @@
 			}
 		},
 		# Define provisioners to override the default because a file provisioner is also being used.
-		"provisioners_ids": [
+		"provisioner_ids": [
+			"shell-init",
 			"file",
-			"shell"
+			"shell-final"
 		],
 		"provisioners": {
-			"file": {
-				"source": "files/",
-				"destination": "/tmp/install_files/",
-				"type": "file"
-			},
-			"shell": {
+			"shell-init": {
+				"settings": [
+					"execute_command = execute.command"
+				],
 				"arrays": {
 					"scripts": [
 						"user_vagrant",
@@ -167,13 +165,31 @@
 						"browsers",
 						"editors",
 						"dev",
-						"java", 
 						"go",
 						"timezone",
-						"vbox",
+						"vbox"
+					]
+				},
+				"type": "shell"
+			},
+			"file": {
+				"settings": [
+					"source=eclipse.desktop",
+					"destination=/tmp/eclipse.desktop"
+				],
+				"type": "file"
+			},
+			"shell-final": {
+				"settings": [
+					"execute_command = execute.command"
+				],
+				"arrays": {
+					"scripts": [
+						"java",
 						"cleanup"
 					]
-				}
+				},
+				"type": "shell"
 			}
 		}
 	},
@@ -243,17 +259,16 @@
 		# used since none is set.
 		"post_processor_ids": [],
 		# Define provisioners to override the default because a file provisioner is also being used.
-		"provisioners_ids": [
+		"provisioner_ids": [
+			"shell-init",
 			"file",
-			"shell"
+			"shell-final"
 		],
 		"provisioners": {
-			"file": {
-				"source": "files/",
-				"destination": "/tmp/install_files/",
-				"type": "file"
-			},
-			"shell": {
+			"shell-init": {
+				"settings": [
+					"execute_command = execute.command"
+				],
 				"arrays": {
 					"scripts": [
 						"user_vagrant",
@@ -264,13 +279,31 @@
 						"browsers",
 						"editors",
 						"dev",
-						"java", 
 						"go",
 						"timezone",
-						"vbox",
+						"vbox"
+					]
+				},
+				"type": "shell"
+			},
+			"file": {
+				"settings": [
+					"source=eclipse.desktop",
+					"destination=/tmp/"
+				],
+				"type": "file"
+			},
+			"shell-final": {
+				"settings": [
+					"execute_command = execute.command"
+				],
+				"arrays": {
+					"scripts": [
+						"java",
 						"cleanup"
 					]
-				}
+				},
+				"type": "shell"
 			}
 		}
 	},

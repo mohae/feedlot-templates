@@ -11,6 +11,6 @@ mkdir -p ~vagrant/code/java/workspace
 EOF
 
 # add the menu shortcut
-cp /tmp/install_files/eclipse.desktop /usr/share/applications/eclipse.desktop
+cp /tmp/eclipse.desktop /usr/share/applications/eclipse.desktop
 # update the default workspace
 sed -i 's/osgi.instance.area.default=@user.home\/workspace/osgi.instance.area.default=@user.home\/code\/java\/workspace/' /usr/share/eclipse/configuration/config.ini  
