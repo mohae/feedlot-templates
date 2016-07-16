@@ -165,7 +165,7 @@
 						"desktop",
 						"browsers",
 						"editors",
-						"flatbuffers"
+						"flatbuffers",
 						"dev",
 						"go",
 						"timezone",
@@ -195,7 +195,7 @@
 			}
 		}
 	},
-	# ubuntu 16.04 LTS w lubuntu desktop targeting virtualbox & vagrant.
+	# ubuntu 16.04 LTS w lubuntu desktop targeting virtualbox.
 	# VM Properties:
 	#   1 cpu
 	#   4096 RAM
@@ -280,6 +280,7 @@
 						"desktop",
 						"browsers",
 						"editors",
+						"flatbuffers",
 						"dev",
 						"go",
 						"timezone",
@@ -389,6 +390,7 @@
 						"desktop",
 						"sound",
 						"browsers",
+						"flatbuffers",
 						"editors",
 						"go",
 						"vbox",
