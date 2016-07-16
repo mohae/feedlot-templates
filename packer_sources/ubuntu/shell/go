@@ -1,18 +1,20 @@
 #!/bin/bash
 
+WORKSPACE=$HOME/code/go
+# Go should be installed under the user not root
+su vagrant  <<'EOF'
+echo export GOPATH=$WORKSPACE >> ~vagrant/.bashrc
+echo export PATH=$PATH:/usr/local/go/bin:$WORKSPACE/bin >> ~$HOME/.bashrc
+exec bash
+wget https://raw.githubusercontent.com/mohae/rancher-templates/master/packer_sources/ubuntu/shell/go
+chmod +x go
+./go -w $WORKSPACE
+
+
 # Add some aliases for Go
-ALIASES=/home/vagrant/.bash_aliases
+ALIASES=$HOME/.bash_aliases
 echo "" >> $ALIASES
 echo "# Some Go aliases" >> $ALIASES
 echo "alias s='cd ~/go/src/'" >> $ALIASES
 echo "alias g='cd ~/go/src/github.com/'" >> $ALIASES
-
-# Go should be installed under the user not root
-su vagrant  <<'EOF'
-echo export GOPATH=$HOME/code/go >> ~vagrant/.bashrc
-echo export PATH=$PATH:/usr/local/go/bin:$HOME/code/go/bin >> ~vagrant/.bashrc
-exec bash
-wget -qO- https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | sudo tar xz -C /usr/local
-mkdir -p ~vagrant/code/go
-
 EOF
