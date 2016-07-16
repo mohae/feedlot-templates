@@ -95,6 +95,7 @@
 	#   build-essential
 	#   gettext
 	#   go (latest release)
+	#   flatbuffers (current release)
 	#   dart (latest stable release)
 	#   java (apt)
 	#   libssl-dev
@@ -164,6 +165,7 @@
 						"desktop",
 						"browsers",
 						"editors",
+						"flatbuffers"
 						"dev",
 						"go",
 						"timezone",

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Install pre-reqs for compiling flatbuffers
+apt-get install -y zlib1g-dev libcurl4-openssl-dev libbz2-dev liblzma-dev libarchive-dev libexpat1-dev
+
+# get cmake and prepare
+cd /tmp
+git clone https:.//cmake.org/cmake.git
+cd cmake
+./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp --docdir=/share/doc/cmake-3.6.0 && make
+
+# make cmake
+make install
+
+# make and install flatbuffers
+git clone https://github.com/google/flatbuffers.git
+cd flatbuffers
+cmake -G "Unix Makefiles"
+make
+mv flatc /usr/bin/
