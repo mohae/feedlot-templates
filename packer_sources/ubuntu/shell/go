@@ -3,9 +3,6 @@
 WORKSPACE=$HOME/code/go
 # Go should be installed under the user not root
 su vagrant  <<'EOF'
-echo export GOPATH=$WORKSPACE >> ~vagrant/.bashrc
-echo export PATH=$PATH:/usr/local/go/bin:$WORKSPACE/bin >> ~$HOME/.bashrc
-exec bash
 wget https://raw.githubusercontent.com/mohae/rancher-templates/master/packer_sources/ubuntu/shell/go
 chmod +x go
 ./go -w $WORKSPACE
