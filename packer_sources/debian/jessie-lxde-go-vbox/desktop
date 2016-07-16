@@ -12,4 +12,4 @@ DEBIAN_FRONTEND=noninteractive apt-get purge -y xscreensaver
 # install sound
 DEBIAN_FRONTEND=noninteractive apt-get install -y alsa-utils
 # add konsole
-DEBIAN_FRONTEND=noninteractive apt-get -y install konsole
+DEBIAN_FRONTEND=noninteractive apt-get -y install konsole tmux

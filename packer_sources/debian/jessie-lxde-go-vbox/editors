@@ -8,7 +8,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y vim emacs
 DEBIAN_FRONTEND=noninteractive apt-get install -y gedit
 
 # install current atom: https://atom.io
-DEBIAN_FRONTEND=noninteractive apt-get install 0-y gvfs-bin
+DEBIAN_FRONTEND=noninteractive apt-get install -y gvfs-bin
 DEBIAN_FRONTEND=noninteractive curl -L https://atom.io/download/deb > atom-amd64.deb
 DEBIAN_FRONTEND=noninteractive dpkg --install atom-amd64.deb
 #apt-get install -y -f
