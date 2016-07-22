@@ -1,5 +1,6 @@
 #!/bin/bash
-# Add/set the sudoers stuff
+# Add/set the sudoers stuff; sudo should already be installed, but it doesn't
+# hurt to make sure.
 apt-get install -y sudo
 groupadd admin
 groupadd sudo

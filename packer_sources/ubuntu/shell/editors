@@ -6,3 +6,20 @@ PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 # install vim and emacs
 DEBIAN_FRONTEND=noninteractive apt-get install -y vim emacs
 
+# alternate text editor
+DEBIAN_FRONTEND=noninteractive apt-get install -y gedit
+
+# install current atom: https://atom.io
+DEBIAN_FRONTEND=noninteractive apt-get install -y gvfs-bin
+DEBIAN_FRONTEND=noninteractive curl -L https://atom.io/download/deb > atom-amd64.deb
+DEBIAN_FRONTEND=noninteractive dpkg --install atom-amd64.deb
+#apt-get install -y -f
+DEBIAN_FRONTEND=noninteractive rm -f /home/vagrant/atom-amd64.deb
+
+# vundle and .vimrc (you should get your own .vimrc)
+# Install the Go binaries for vim-go
+su - vagrant <<'EOF'
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  wget https://raw.githubusercontent.com/mohae/vimrc/master/.vimrc
+  apm install go-plus
+EOF

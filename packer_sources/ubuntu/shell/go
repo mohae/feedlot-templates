@@ -2,11 +2,11 @@
 
 WORKSPACE=$HOME/code/go
 # Go should be installed under the user not root
-su vagrant  <<'EOF'
-wget https://raw.githubusercontent.com/mohae/rancher-templates/master/packer_sources/ubuntu/shell/go
-chmod +x go
-./go -w $WORKSPACE
-
+su - vagrant  <<'EOF'
+cd /tmp
+wget https://raw.githubusercontent.com/mohae/install-go/master/install_current
+chmod +x install_current
+./install_current -w $WORKSPACE
 
 # Add some aliases for Go
 ALIASES=$HOME/.bash_aliases

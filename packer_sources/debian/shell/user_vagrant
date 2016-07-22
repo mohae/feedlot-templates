@@ -16,7 +16,7 @@ usermod -a -G netdev $UNAME
 #       this way. For your private keys, make sure they do not end up in your
 #       Git repo, or any other publicly available resource. You should have a
 #       secure way of handling private keys.
-mkdir /home/$UNAME/.ssh
+mkdir -p /home/$UNAME/.ssh
 wget --no-check-certificate 'https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/$UNAME/.ssh/authorized_keys
 chown -R $UNAME:$UNAME /home/$UNAME/.ssh
 chmod 700 /home/$UNAME/.ssh

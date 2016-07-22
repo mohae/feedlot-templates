@@ -3,15 +3,13 @@
 # java
 DEBIAN_FRONTEND=noninteractive apt-get install -y default-jre
 DEBIAN_FRONTEND=noninteractive apt-get install -y default-jdk
-wget http://ftp.osuosl.org/pub/eclipse/technology/epp/downloads/release/mars/2/eclipse-java-mars-2-linux-gtk-x86_64.tar.gz -O /tmp/eclipse.tar.gz && tar xzf /tmp/eclipse.tar.gz -C /usr/share
 # Java workspace should be under user, not root
 su vagrant  <<'EOF'
-mkdir -p $HOME/code/java/workspace
+mkdir -p "$HOME/code/java/workspace"
 EOF
 
 # install eclipse
-wget https://eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz&mirror_id=272
-tar -xzf
+wget https://eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz&mirror_id=272 -O /tmp/eclipse.tar.gz && tar xzf /tmp/eclipse.tar.gz -C /usr/share
 # add the menu shortcut
 cp /tmp/eclipse.desktop /usr/share/applications/eclipse.desktop
 # update the default workspace
