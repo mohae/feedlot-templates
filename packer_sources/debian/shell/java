@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# java
+DEBIAN_FRONTEND=noninteractive apt-get install -y default-jre
+DEBIAN_FRONTEND=noninteractive apt-get install -y default-jdk
+# Java workspace should be under user, not root
+su vagrant  <<'EOF'
+mkdir -p "$HOME/code/java/workspace"
+EOF
+
+# install eclipse
+wget https://eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/neon/R/eclipse-java-neon-R-linux-gtk-x86_64.tar.gz&mirror_id=272 -O /tmp/eclipse.tar.gz && tar xzf /tmp/eclipse.tar.gz -C /usr/share
+# add the menu shortcut
+cp /tmp/eclipse.desktop /usr/share/applications/eclipse.desktop
+# update the default workspace
+sed -i 's/osgi.instance.area.default=@user.home\/workspace/osgi.instance.area.default=@user.home\/code\/java\/workspace/' /usr/share/eclipse/configuration/config.ini

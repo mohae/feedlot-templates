@@ -325,10 +325,15 @@
 	#   go (latest release)
 	#   delve (A Go debugger)
 	#   liteide (A Go ide)
+	# Installed dev stuff:
+	#   C
+	#   C++
+	#   cmake
+	#   Flatbuffers
 	# Installed editors:
 	#   atom
 	#   emacs
-	#   vim w spf13-vim
+	#   vim
 	# Installed software (in addition to what comes with Ubuntu):
 	#   alsa-utils
 	#   build-essential
@@ -395,6 +400,105 @@
 						"flatbuffers",
 						"editors",
 						"go",
+						"vbox",
+						"cleanup"
+					]
+				}
+			}
+		}
+	}
+	# Debian Jessie w lxde desktop and dev stuff, targeting virtualbox.
+	# VM Properties:
+	#   1 cpu
+	#   4096 RAM
+	#   128 VRAM
+	#   3d acceleration enabled
+	#   bidirectional clipboard
+	#   audio dsound
+	#   audiocontroller ac97
+	# Installed Go stuff:
+	#   go (latest release)
+	#   delve (A Go debugger)
+	#   liteide (A Go ide)
+	# Installed languages/dev tools:
+	#   gcc
+	#   cmake
+	#   Flatbuffers
+	#   Lua
+	#   Java w Eclipse
+	#   Rust
+	#   TypeScript
+	# Installed editors:
+	#   atom
+	#   emacs
+	#   vim
+	# Installed software (in addition to what comes with Ubuntu):
+	#   alsa-utils
+	#   build-essential
+	#   bzip2
+	#   chrome
+	#   chromium
+	#   curl
+	#   dkms
+	#   git
+	#   konsole
+	#   liblz4-tool
+	#   linux-headers-$(uname -r)
+	#   quassel
+	#   rsync
+	#   tree
+	#   wget
+	# Removed packages:
+	#   xscreensaver
+	#
+	# Notes:
+	#   * Timezone is set to America/Chicago; to change the timezone,
+	#     modify the packer_sources/debian/shell/timezone shell script.
+	#   * The initial user is vagrant/vagrant; to change it modify the
+	#     packer_sources/debian/http/preseed.cfg file.
+	"jessie-lxde-dev-vbox": {
+		"description": "Debian jessie amd64 virtualbox vagrant build w dev stuff",
+		"distro": "debian",
+		"release": "8",
+		"arch": "amd64",
+		"image": "netinst",
+		"builder_ids": [
+			"virtualbox-iso"
+		],
+		"builders": {
+			"virtualbox-iso": {
+				"arrays": {
+					"vboxmanage": [
+						"accelerate3d=on",
+						"audio=dsound",
+						"audiocontroller=ac97",
+						"clipboard=bidirectional",
+						"cpus=1",
+						"memory=4096",
+						"vram=128"
+					]
+				}
+			}
+		},
+		# unset the vagrant post-processor; no post-processor will be
+		# used since none is set.
+		"post_processor_ids": [],
+		"provisioners": {
+			"shell": {
+				"arrays": {
+					"scripts": [
+						"user_vagrant",
+						"setup",
+						"sudoers",
+						"aliases",
+						"timezone",
+						"desktop",
+						"sound",
+						"browsers",
+						"flatbuffers",
+						"editors",
+						"go",
+						"java",
 						"vbox",
 						"cleanup"
 					]

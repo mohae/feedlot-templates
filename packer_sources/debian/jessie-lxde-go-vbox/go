@@ -1,14 +1,12 @@
-#!/usr/bin/env bash
-WORKSPACE=$HOME/code/go
-PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-DEBIAN_FRONTEND=noninteractive apt-get update
-DEBIAN_FRONTEND=noninteractive apt-get install -y gvfs-bin
+#!/bin/bash
 
+WORKSPACE=$HOME/code/go
 # Go should be installed under the user not root
-su vagrant  <<'EOF'
-wget https://raw.githubusercontent.com/mohae/rancher-templates/master/packer_sources/ubuntu/shell/go
-chmod +x go
-./go -w $WORKSPACE
+su - vagrant  <<'EOF'
+cd /tmp
+wget https://raw.githubusercontent.com/mohae/install-go/master/install_current
+chmod +x install_current
+./install_current -w $WORKSPACE
 
 # Add some aliases for Go
 ALIASES=$HOME/.bash_aliases
@@ -16,7 +14,4 @@ echo "" >> $ALIASES
 echo "# Some Go aliases" >> $ALIASES
 echo "alias s='cd ~/go/src/'" >> $ALIASES
 echo "alias g='cd ~/go/src/github.com/'" >> $ALIASES
-
-# liteide: latest
-wget -qO- http://sourceforge.net/projects/liteide/files/latest/download?source=files | sudo tar -C /usr/local -xj
 EOF
